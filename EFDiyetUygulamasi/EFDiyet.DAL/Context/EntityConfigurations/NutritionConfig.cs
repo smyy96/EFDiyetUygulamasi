@@ -41,8 +41,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
             //Düzenlenecek enumlar türkçeleşince
             builder.HasData(
-                    new Nutrition { Id = 1, NutritionName = "Elma", Calories = 52, CategoryId = 1, NutritionValueId = 1, Portion = Portion.Piece, PortionSize = 1 },
-                    new Nutrition { Id = 2, NutritionName = "Domates", Calories = 18, CategoryId = 2, NutritionValueId = 2, Portion = Portion.Unit, PortionSize = 1 }
+                    new Nutrition { Id = 1, NutritionName = "Elma", Calories = 52, CategoryId = 1, NutritionValueId = 1, Portion = Portion.Adet, PortionSize = 1 },
+                    new Nutrition { Id = 2, NutritionName = "Domates", Calories = 18, CategoryId = 2, NutritionValueId = 2, Portion = Portion.Adet, PortionSize = 1 }
                     );
         }
     }

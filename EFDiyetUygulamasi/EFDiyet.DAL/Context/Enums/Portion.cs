@@ -14,12 +14,12 @@ namespace EFDiyet.DAL.Context.Enums
         Mililitre,
         Litre,
         Kase,
-        Çiçek,
         YemekKaşığı,
         Birim,
         Porsiyon,
         Gram,
         Kalıp,
-        Parça
+        Parça,
+        Adet
     }
 }

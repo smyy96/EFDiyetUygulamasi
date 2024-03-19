@@ -35,7 +35,7 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                    new Category { Id = 4, CategoryName = "Salata" },
                    new Category { Id = 5, CategoryName = "Unlu Mamuller" },
                    new Category { Id = 6, CategoryName = "Tatlı" },
-                   new Category { Id = 6, CategoryName = "İçecek" }
+                   new Category { Id = 7, CategoryName = "İçecek" }
 
                 );
 

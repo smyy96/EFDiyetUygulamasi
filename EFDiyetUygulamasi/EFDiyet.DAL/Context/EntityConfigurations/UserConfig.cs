@@ -28,8 +28,11 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
             builder.Property(u => u.UserType);
 
-            builder.HasOne(ud => ud.UserDetail)
-                   .WithOne(u => u.User);
+
+            builder.HasOne(u => u.UserDetail)
+                   .WithOne(ud => ud.User)
+                   .HasForeignKey<UserDetail>(ud => ud.Id);
+
 
             builder.HasMany(un => un.UserNutrition)
                    .WithOne(u => u.User)
