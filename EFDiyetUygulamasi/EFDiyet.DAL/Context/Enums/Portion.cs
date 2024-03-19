@@ -8,18 +8,18 @@ namespace EFDiyet.DAL.Context.Enums
 {
     public enum Portion
     {
-        Gram = 1,
-        Glass,
-        Slice,
-        MilliLiter,
-        Liter,
-        Bowl,
-        Floweret,
-        Tablespoon,
-        Unit,
-        Serving,
-        Plate,
-        Block,
-        Piece
+        Tabak = 1,
+        Bardak,
+        Dilim,
+        Mililitre,
+        Litre,
+        Kase,
+        Çiçek,
+        YemekKaşığı,
+        Birim,
+        Porsiyon,
+        Gram,
+        Kalıp,
+        Parça
     }
 }
