@@ -12,6 +12,6 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
     {
         public string NutritionValueName { get; set; }
 
-        public ICollection<Nutrition> Nutrition { get; set; } //sc
+        public ICollection<Nutrition> Nutrition { get; set; }
     }
 }

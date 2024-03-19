@@ -11,9 +11,9 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
     //Ögün tablosu
     public class Meal : EntityBase 
     {
-        public string MealName {  get; set; } //sc turkce
+        public string MealName {  get; set; } 
 
-        public ICollection<UserNutrition> UserNutrition { get; set; } // her ögünler birden fazla kullanıcı besin ile ilişkili
+        public ICollection<UserNutrition> UserNutrition { get; set; } 
 
 
     }

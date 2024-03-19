@@ -43,10 +43,21 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Name = "ılgısü",
                         Surname = "Hiv",
                         Email = "ish@gmail.com.com",
-                        Password = "1234", // Gerçek şifrenin özetlenmiş sürümü
+                        Password = "1234", 
                         UserType = UserType.User,
                         SecurityQuestion = "Favori sayın kaçtır?",
                         Answer = "5"
+                    },
+                    new User
+                    {
+                        Id = 2,
+                        Name = "Hivda Ilgın",
+                        Surname = "Sümeyye",
+                        Email = "admin@gmail.com",
+                        Password = "admin1234", 
+                        UserType = UserType.Admin,
+                        SecurityQuestion = "Favori sayın kaçtır?",
+                        Answer = "1"
                     });
         }
     }
