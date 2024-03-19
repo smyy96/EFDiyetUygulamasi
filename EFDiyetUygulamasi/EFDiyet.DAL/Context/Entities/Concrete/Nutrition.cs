@@ -19,7 +19,7 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
         public Category Category { get; set; } 
 
         public int NutritionValueId { get; set; }
-        public NutritionValue NutritionValue { get; set; } = new NutritionValue();
+        public NutritionValue NutritionValue { get; set; }
 
         public Portion Portion { get; set; }
         public float PortionSize { get; set; }
