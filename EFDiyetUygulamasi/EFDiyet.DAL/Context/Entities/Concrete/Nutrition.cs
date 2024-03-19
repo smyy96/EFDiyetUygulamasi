@@ -1,4 +1,5 @@
 ﻿using EFDiyet.DAL.Context.Entities.Abstract;
+using EFDiyet.DAL.Context.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -10,6 +10,7 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
     public class Category : EntityBase
     {
         public string CategoryName {  get; set; }
+        public List<Meal> Meal { get; set; }
         
     }
 }
