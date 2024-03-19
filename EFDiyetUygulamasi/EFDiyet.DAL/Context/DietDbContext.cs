@@ -28,7 +28,7 @@ namespace EFDiyet.DAL.Context
         }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) //Config dosyalarımızı 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 

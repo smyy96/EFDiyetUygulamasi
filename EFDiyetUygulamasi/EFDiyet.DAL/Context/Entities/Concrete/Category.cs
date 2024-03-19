@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.DAL.Context.Entities.Concrete
 {
+    //Kategori tablosu
     public class Category : EntityBase
     {
         public string CategoryName {  get; set; }
-        public List<Meal> Meal { get; set; }
-        
+
+        public ICollection<Nutrition> Nutrition { get; set; } //sc
+
     }
 }

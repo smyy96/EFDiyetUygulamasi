@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.DAL.Context.Entities.Concrete
 {
+    //Ögün tablosu
     public class Meal : EntityBase 
     {
-        public string OgunAdi {  get; set; }
+        public string MealName {  get; set; } //sc turkce
 
-        public List<Nutrition> Besin { get; set; }
+        public ICollection<UserNutrition> UserNutrition { get; set; } // her ögünler birden fazla kullanıcı besin ile ilişkili
 
 
     }

@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.DAL.Context.Entities.Concrete
 {
+    //Kullanıcı detay tablosu
     public class UserDetail : EntityBase
     {
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public float Height { get; set; }
         public float Weight { get; set; }
+
         public User User { get; set; }
     }
 }

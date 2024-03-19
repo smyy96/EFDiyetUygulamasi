@@ -8,15 +8,22 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.DAL.Context.Entities.Concrete
 {
+    //Besinler tablosu
     public class Nutrition :EntityBase
     {
         public string NutritionName { get; set; }
         public float Calories { get; set; } 
-        public string Image {  get; set; }  
+        public string? Image {  get; set; }  
 
-        public Category CategoryId { get; set; }
-        public NutritionValue NutritionValueId { get; set; }
+        public int CategoryId { get; set; } // public Category CategoryId { get; set; } böyle tanımlanmıştı düzelttim
+        public Category Category { get; set; } //sc
+
+        public int NutritionValueId { get; set; }
+        public NutritionValue NutritionValue { get; set; } //sc
+
         public Portion Portion { get; set; }
         public float PortionSize { get; set; }
+
+        public ICollection<UserNutrition> UserNutrition { get; set; } //sc her besin birden fazla kullanıcıbesin içerir
     }
 }
