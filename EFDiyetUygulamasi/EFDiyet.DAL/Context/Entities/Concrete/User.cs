@@ -23,5 +23,6 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
         public UserDetail UserDetail { get; set; }
 
         public ICollection<UserNutrition> UserNutrition { get; set; }
+        public object User { get; internal set; }
     }
 }
