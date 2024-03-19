@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\Entities\Concrete\" />
     <Folder Include="Context\EntityConfigurations\" />
   </ItemGroup>
 
