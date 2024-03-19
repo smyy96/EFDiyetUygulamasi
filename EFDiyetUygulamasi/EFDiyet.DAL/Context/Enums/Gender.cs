@@ -8,7 +8,7 @@ namespace EFDiyet.DAL.Context.Enums
 {
     public enum Gender
     {
-        Female = 1,
-        Male 
+        Kadın = 1,
+        Erkek 
     }
 }
