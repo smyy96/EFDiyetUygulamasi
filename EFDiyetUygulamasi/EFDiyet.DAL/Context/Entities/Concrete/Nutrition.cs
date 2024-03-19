@@ -15,15 +15,15 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
         public float Calories { get; set; } 
         public string? Image {  get; set; }  
 
-        public int CategoryId { get; set; } // public Category CategoryId { get; set; } böyle tanımlanmıştı düzelttim
-        public Category Category { get; set; } //sc
+        public int CategoryId { get; set; } 
+        public Category Category { get; set; } 
 
         public int NutritionValueId { get; set; }
-        public NutritionValue NutritionValue { get; set; } //sc
+        public NutritionValue NutritionValue { get; set; } 
 
         public Portion Portion { get; set; }
         public float PortionSize { get; set; }
 
-        public ICollection<UserNutrition> UserNutrition { get; set; } //sc her besin birden fazla kullanıcıbesin içerir
+        public ICollection<UserNutrition> UserNutrition { get; set; } 
     }
 }
