@@ -14,5 +14,7 @@ namespace EFDiyet.BLL.Manager.Concrete
     public class CategoryManager : Manager<CategoryModel, Category, CategoryRepository>
     {
         
+
+
     }
 }

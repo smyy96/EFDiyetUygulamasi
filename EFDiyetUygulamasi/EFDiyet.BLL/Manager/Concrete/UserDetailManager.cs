@@ -12,5 +12,7 @@ namespace EFDiyet.BLL.Manager.Concrete
 {
     public class UserDetailManager : Manager<UserDetailModel,UserDetail,UserDetailRepository>
     {
+
+
     }
 }
