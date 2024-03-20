@@ -62,7 +62,7 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         public IQueryable<TEntity> GetAll()
         {
-            return _dbSet.Where(x => x.IsActive != false).AsNoTracking();
+            return _dbSet.Where(x => x.IsActive == true && x.IsActive != null).AsNoTracking();
         }
 
         public TEntity? GetById(int id)
