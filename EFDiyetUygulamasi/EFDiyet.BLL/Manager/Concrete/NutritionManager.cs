@@ -12,5 +12,8 @@ namespace EFDiyet.BLL.Manager.Concrete
 {
     public class NutritionManager : Manager<NutritionModel, Nutrition, NutritionRepository>
     {
+
+
+
     }
 }

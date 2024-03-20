@@ -17,5 +17,6 @@ namespace EFDiyet.BLL.Manager.Concrete
         {
             return _repository.CategoryList().ToList();
         }
+
     }
 }
