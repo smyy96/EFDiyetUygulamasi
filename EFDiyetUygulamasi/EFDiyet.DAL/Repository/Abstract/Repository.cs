@@ -10,7 +10,7 @@ using System.Xml.Schema;
 
 namespace EFDiyet.DAL.Repository.Abstract
 {
-    public abstract class Repository<TEntity> : IRepo<TEntity> where TEntity : EntityBase
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase
     {
         protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
