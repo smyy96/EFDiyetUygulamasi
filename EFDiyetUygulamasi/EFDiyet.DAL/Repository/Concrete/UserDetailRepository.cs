@@ -11,10 +11,6 @@ namespace EFDiyet.DAL.Repository.Concrete
 {
     public class UserDetailRepository : Repository<UserDetail>
     {
-        public UserDetailRepository()
-        {
-            
-        }
-        public UserDetailRepository(DietDbContext db) : base(db) { }
+        public UserDetailRepository() : base(new DietDbContext()) { }
     }
 }

@@ -6,14 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using EFDiyet.DAL.Repository.Abstract;
 using EFDiyet.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFDiyet.DAL.Repository.Concrete
 {
     public class CategoryRepository: Repository<Category>
     {
-        public CategoryRepository()
-        {                
+        
+        public CategoryRepository():base(new DietDbContext()) { }
+
+        public DietDbContext DietDbContext => _dbContext as DietDbContext;
+
+        public IQueryable<Category> CategoryList()
+        {
+            var deger = _dbSet.Include(x => x.Nutrition);
+            return deger;
         }
-        public CategoryRepository(DietDbContext db):base(db) { }
     }
 }
