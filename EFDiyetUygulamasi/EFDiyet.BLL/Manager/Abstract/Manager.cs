@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EFDiyet.DAL.Context.Entities.Abstract;
+using EFDiyet.DAL.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,19 @@ namespace EFDiyet.BLL.Manager.Abstract
         protected readonly TRepository _repository;
         private readonly IMapper _mapper;
 
-        public Manager(TRepository repository, IMapper mapper)
+        //public Manager(TRepository repository, IMapper mapper)
+        public Manager()
         {
-            _repository = repository;
-            _mapper = mapper;
+            //_repository = repository;
+            //_mapper = mapper;
+
+            _repository = new TRepository();
+
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<TModel, TEntity>().ReverseMap();
+            });
+            _mapper = new Mapper(config);
         }
 
         public void Insert(TModel model)
@@ -28,7 +38,7 @@ namespace EFDiyet.BLL.Manager.Abstract
             _repository.Add(entity);
         }
 
-        public void Modify(TModel model)
+        public void Modified(TModel model)
         {
             TEntity entity = _mapper.Map<TEntity>(model);
             _repository.Update(entity);
@@ -42,7 +52,7 @@ namespace EFDiyet.BLL.Manager.Abstract
 
         public List<TModel> GetAll()
         {
-            List<TEntity> entityList = _repository.GetAll();
+            List<TEntity> entityList = _repository.GetAll().ToList();
             List<TModel> modelList = _mapper.Map<List<TModel>>(entityList);
             return modelList;
         }
@@ -53,6 +63,7 @@ namespace EFDiyet.BLL.Manager.Abstract
             TModel model = _mapper.Map<TModel>(entity);
             return model;
         }
+
     }
 
 }

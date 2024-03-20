@@ -1,4 +1,5 @@
 ﻿using EFDiyet.DAL.Context.Entities.Abstract;
+using EFDiyet.DAL.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace EFDiyet.BLL.Manager.Abstract
         where TEntity : EntityBase, new()
         where TModel : class, new()
         where TRepository : IRepository<TEntity>, new()
-    {
-        
+    {        
 
         public void Insert(TModel model);
 
@@ -20,7 +20,7 @@ namespace EFDiyet.BLL.Manager.Abstract
 
         public void Remove(TModel model);
 
-        public IQueryable<TModel> GetAll();
+        public List<TModel> GetAll();
 
         public TModel? GetById(int Id);
     }
