@@ -11,6 +11,9 @@ namespace EFDiyet.DAL.Repository.Concrete
 {
     public class CategoryRepository: Repository<Category>
     {
+        public CategoryRepository()
+        {                
+        }
         public CategoryRepository(DietDbContext db):base(db) { }
     }
 }

@@ -1,4 +1,5 @@
-﻿using EFDiyet.BLL.Model;
+﻿using EFDiyet.BLL.Manager.Abstract;
+using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Repository.Concrete;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.BLL.Manager.Concrete
 {
-    public class NutritionValue : Manager<NutritionValueModel, NutritionValue, NutritionValueRepository>
+    public class NutritionValueManager : Manager<NutritionValueModel, NutritionValue, NutritionValueRepository>
     {
     }
 }

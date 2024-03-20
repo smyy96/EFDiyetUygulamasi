@@ -15,16 +15,13 @@ namespace EFDiyet.DAL.Repository.Abstract
         protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
 
-
         public Repository()
-        {
-            
+        {                
         }
 
         public Repository(DbContext dbContext)
         {
             _dbContext = dbContext;
-
             _dbSet = _dbContext.Set<TEntity>();
         }
 
