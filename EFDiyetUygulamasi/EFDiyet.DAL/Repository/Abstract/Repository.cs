@@ -41,7 +41,7 @@ namespace EFDiyet.DAL.Repository.Abstract
         public void Update(TEntity entity)
         {
             entity.UpdatedDate = DateTime.Now;
-
+            // created date eklenecek
             _dbSet.Update(entity);
             _dbContext.SaveChanges();
 
@@ -69,7 +69,7 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         public TEntity? GetById(int id)
         {
-            return _dbSet.Where(x => x.Id == id && x.IsActive == true).SingleOrDefault();
+            return _dbSet.FirstOrDefault(x => x.Id == id && x.IsActive == true);
         }
 
 
