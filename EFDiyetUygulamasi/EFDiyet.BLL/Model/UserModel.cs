@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFDiyet.DAL.Context.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace EFDiyet.BLL.Model
         public string Email { get; set; }
         public string Password { get; set; }
        
-        //bu enumları napcagımı bilmiyorum
+        
         public UserType UserType { get; set; }
        
         public string SecurityQuestion { get; set; }

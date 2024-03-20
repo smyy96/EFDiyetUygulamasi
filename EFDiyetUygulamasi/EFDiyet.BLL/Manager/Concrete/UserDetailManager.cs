@@ -1,4 +1,5 @@
-﻿using EFDiyet.DAL.Context.Entities.Concrete;
+﻿using EFDiyet.BLL.Model;
+using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
