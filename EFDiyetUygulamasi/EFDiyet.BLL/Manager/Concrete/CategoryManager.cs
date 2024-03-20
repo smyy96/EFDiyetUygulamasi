@@ -1,3 +1,4 @@
+﻿using EFDiyet.BLL.Model;
 ﻿using EFDiyet.BLL.Manager.Abstract;
 using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Repository.Concrete;

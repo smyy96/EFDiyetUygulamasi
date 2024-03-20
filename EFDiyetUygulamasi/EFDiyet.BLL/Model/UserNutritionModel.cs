@@ -8,8 +8,7 @@ namespace EFDiyet.BLL.Model
 {
     public class UserNutritionModel
     {
-       //bir de burası da öyle kullanıcıdan gelecek bir sey olmadıgı icin olmayacak mı??
-       
+             
         
         public int UserId { get; set; }
         public int NutritionId { get; set; }
@@ -18,8 +17,8 @@ namespace EFDiyet.BLL.Model
 
 
 
-        public User User { get; set; }
-        public Nutrition Nutrition { get; set; }
-        public Meal Meal { get; set; }
+        public UserModel User { get; set; }
+        public NutritionModel Nutrition { get; set; }
+        public MealModel Meal { get; set; }
     }
 }
