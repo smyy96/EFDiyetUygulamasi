@@ -1,2 +1,1 @@
-# EFDiyetUygulamas-
-EF projesi.
+# EF Diyet Uygulaması
