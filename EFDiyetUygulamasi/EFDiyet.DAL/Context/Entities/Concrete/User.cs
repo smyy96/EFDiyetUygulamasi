@@ -18,8 +18,9 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
         public UserType UserType { get; set; }
         public string SecurityQuestion { get; set; }
         public string Answer { get; set; }
-        public string? Picture { get; set; } 
-        
+        public string? Picture { get; set; }
+
+        public int UserDetailId { get; set; }
         public UserDetail UserDetail { get; set; }
 
         public ICollection<UserNutrition> UserNutrition { get; set; }

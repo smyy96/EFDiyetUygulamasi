@@ -31,7 +31,7 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
             builder.HasOne(u => u.UserDetail)
                    .WithOne(ud => ud.User)
-                   .HasForeignKey<UserDetail>(ud => ud.Id);
+                   .HasForeignKey<User>(x => x.UserDetailId);
 
 
             builder.HasMany(un => un.UserNutrition)
@@ -46,7 +46,7 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Name = "ılgısü",
                         Surname = "Hiv",
                         Email = "ish@gmail.com.com",
-                        Password = "1234", 
+                        Password = "1234",
                         UserType = UserType.User,
                         SecurityQuestion = "Favori sayın kaçtır?",
                         Answer = "5"
@@ -57,7 +57,7 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Name = "Hivda Ilgın",
                         Surname = "Sümeyye",
                         Email = "admin@gmail.com",
-                        Password = "admin1234", 
+                        Password = "admin1234",
                         UserType = UserType.Admin,
                         SecurityQuestion = "Favori sayın kaçtır?",
                         Answer = "1"

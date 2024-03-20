@@ -11,10 +11,6 @@ namespace EFDiyet.DAL.Repository.Concrete
 {
     public class NutritionRepository : Repository<Nutrition>
     {
-        public NutritionRepository()
-        {
-            
-        }
-        public NutritionRepository(DietDbContext db) : base(db) { }
+        public NutritionRepository() : base(new DietDbContext()) { }
     }
 }
