@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.BLL.Manager.Concrete
 {
-    public class CategoryManager : Manager<CategoryModel, Category, CategoryRepository>
+    public class MealManager: Manager<MealModel, Meal, MealRepository>
     {
-        
     }
 }
