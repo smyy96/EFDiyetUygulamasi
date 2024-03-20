@@ -41,7 +41,8 @@ namespace EFDiyet.DAL.Repository.Abstract
         public void Update(TEntity entity)
         {
             entity.UpdatedDate = DateTime.Now;
-            // created date eklenecek
+            entity.CreatedDate = GetById(entity.Id).CreatedDate;
+
             _dbSet.Update(entity);
             _dbContext.SaveChanges();
 
