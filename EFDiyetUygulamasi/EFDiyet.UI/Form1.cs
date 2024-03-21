@@ -34,14 +34,32 @@ namespace EFDiyet.UI
             */
 
 
-            List<catego> = maa.CategoryList;
-            string text1 = "";
-            foreach (var item in a)
-            {
-                text1 = text1 + " " + item.CategoryName;
-            }
-            MessageBox.Show(text);
+            //List<CategoryModel> a = maa.CategoryList();
+            //string text1 = "";
+            //foreach (var item in a)
+            //{
+            //    foreach (var item2 in item.Nutrition)
+            //    {
+            //        text1 = text1 + "Kategori Name: " + item.CategoryName + " Besin Adi: " + item2.NutritionName+" Kalorisi: "+item2.Calories+" Porsiyonu: "+item2.Portion.ToString()+"\n";
+            //    }
+            //}
+            //MessageBox.Show(text1);
 
+            CategoryManager categoryManager = new CategoryManager();
+            var deneme1= categoryManager.GetAllWithIncludes();
+
+
+            NutritionManager nutritionManager = new NutritionManager();
+            var deneme = nutritionManager.GetAllWithIncludes();
+            var deneme2 = nutritionManager.GetAll();
+
+            CategoryManager k=  new CategoryManager();
+            var de = k.GetAll();
+
+
+            
+
+            Console.WriteLine();
         }
     }
 }

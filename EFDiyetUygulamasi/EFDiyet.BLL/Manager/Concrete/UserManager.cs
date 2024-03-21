@@ -1,4 +1,5 @@
 ﻿using EFDiyet.BLL.Manager.Abstract;
+using EFDiyet.BLL.MappingProfile;
 using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Repository.Concrete;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.BLL.Manager.Concrete
 {
-    public class UserManager : Manager<UserModel, User, UserRepository>
+    public class UserManager : Manager<UserModel, User, UserRepository, NutritionMapProfile>
     {
     }
 }

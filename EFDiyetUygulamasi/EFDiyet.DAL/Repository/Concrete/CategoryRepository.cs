@@ -18,7 +18,7 @@ namespace EFDiyet.DAL.Repository.Concrete
         public DietDbContext DietDbContext => _dbContext as DietDbContext;
 
         public IQueryable<Category> CategoryList()
-        {
+        {            
             var deger = _dbSet.Include(x => x.Nutrition);
             return deger;
         }

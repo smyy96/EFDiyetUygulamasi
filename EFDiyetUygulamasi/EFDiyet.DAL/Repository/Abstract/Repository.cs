@@ -4,13 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
 namespace EFDiyet.DAL.Repository.Abstract
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase , new()
     {
         protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
@@ -45,7 +46,7 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         }
 
-        public void Delete(TEntity entity)
+        public void Delete(TEntity entity)//Soft Delete
         {
             entity.DeletedDate = DateTime.Now;
             entity.IsActive = false;    
@@ -54,7 +55,7 @@ namespace EFDiyet.DAL.Repository.Abstract
             _dbContext.SaveChanges();   
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(TEntity entity) //Hard Delete
         {         
             _dbSet.Remove(entity);
             _dbContext.SaveChanges();
@@ -70,6 +71,26 @@ namespace EFDiyet.DAL.Repository.Abstract
             return _dbSet.FirstOrDefault(x => x.Id == id && x.IsActive == true);
         }
 
+        public IQueryable<TEntity> GetAllWithIncludes()
+        {
 
+
+            IQueryable<TEntity> query = _dbSet; //butun nav propları al
+
+            TEntity instance = new TEntity();
+            Type type = instance.GetType(); //T'nin turunu ögreniyoruz
+
+
+            PropertyInfo[] properties = type.GetProperties();
+
+
+            foreach (PropertyInfo propInfo in properties.Where(pl => pl.PropertyType.GetInterfaces().Where(i => i.Name == "IEntityBase").Any()).ToList())
+            {
+                query = query.Include(propInfo.Name);
+            }
+
+            return query;
+
+        }
     }
 }
