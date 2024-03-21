@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFDiyet.DAL.Context.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace EFDiyet.BLL.Model
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
+
+        public List<NutritionModel> NutritionModel { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace EFDiyet.BLL.Model
         public string Answer { get; set; }
         public string? Picture { get; set; }
 
+        public int UserDetailId { get; set; }
         public UserDetailModel UserDetailModel { get; set; }
     }
 }

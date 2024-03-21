@@ -49,7 +49,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Password = "1234",
                         UserType = UserType.User,
                         SecurityQuestion = "Favori sayın kaçtır?",
-                        Answer = "5"
+                        Answer = "5",
+                        UserDetailId = 1
                     },
                     new User
                     {
@@ -60,7 +61,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Password = "admin1234",
                         UserType = UserType.Admin,
                         SecurityQuestion = "Favori sayın kaçtır?",
-                        Answer = "1"
+                        Answer = "1",
+                        UserDetailId = 2
                     });
         }
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.BLL.Manager.Abstract
 {
-    public interface IManager<TModel, TEntity, TRepository>
+    public interface IManager<TModel, TEntity, TRepository, TMapperProfile>
         where TEntity : EntityBase, new()
         where TModel : class, new()
         where TRepository : IRepository<TEntity>, new()
@@ -20,8 +20,12 @@ namespace EFDiyet.BLL.Manager.Abstract
 
         public void Remove(TModel model);
 
+        public void Delete(TModel model);
+
         public List<TModel> GetAll();
 
         public TModel? GetById(int Id);
+
+        public List<TModel> GetAllWithIncludes(); //sc
     }
 }
