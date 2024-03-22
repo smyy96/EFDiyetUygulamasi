@@ -21,10 +21,12 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
             builder.Property(u => u.Name).HasMaxLength(100);
             builder.Property(u => u.Surname).HasMaxLength(100);
             builder.Property(u => u.Email).HasMaxLength(150).IsRequired();
-            builder.Property(u => u.Password).HasMaxLength(50).IsRequired();
+            builder.Property(u => u.Password).HasMaxLength(100).IsRequired();
             builder.Property(u => u.SecurityQuestion).HasMaxLength(150);
             builder.Property(u => u.Answer).HasMaxLength(100);
-            builder.Property(u => u.Picture).HasMaxLength(200);
+
+            builder.Property(u => u.Picture)
+               .HasColumnType("varbinary(max)");
 
             builder.Property(u => u.UserType);
 
