@@ -12,5 +12,16 @@ namespace EFDiyet.DAL.Repository.Concrete
     public class UserDetailRepository : Repository<UserDetail>
     {
         public UserDetailRepository() : base(new DietDbContext()) { }
+
+        public int AddReturnId(UserDetail entity)
+        {
+            entity.CreatedDate = DateTime.Now;
+            entity.IsActive = true;
+
+            _dbSet.Add(entity);
+            _dbContext.SaveChanges();
+
+            return entity.Id; // Eklenen nesneyi geri döndür
+        }
     }
 }

@@ -3,6 +3,7 @@ using EFDiyet.BLL.MappingProfile;
 using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Repository.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

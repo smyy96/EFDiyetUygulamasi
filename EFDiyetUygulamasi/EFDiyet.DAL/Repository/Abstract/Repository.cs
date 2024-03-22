@@ -30,6 +30,7 @@ namespace EFDiyet.DAL.Repository.Abstract
         {
 
             entity.CreatedDate = DateTime.Now;
+            entity.IsActive = true;
 
             _dbSet.Add(entity);
             _dbContext.SaveChanges();
