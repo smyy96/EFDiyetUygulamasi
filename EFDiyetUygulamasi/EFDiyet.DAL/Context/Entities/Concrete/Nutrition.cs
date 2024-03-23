@@ -13,7 +13,7 @@ namespace EFDiyet.DAL.Context.Entities.Concrete
     {
         public string NutritionName { get; set; }
         public float Calories { get; set; }
-        public byte[]? Image { get; set; }
+        public byte[]? Image { get; set; } = null;
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }

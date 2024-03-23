@@ -12,20 +12,20 @@ namespace EFDiyet.BLL.Model
         public int Id { get; set; }
 
         public string NutritionName { get; set; }
-       
-        public float Calories { get; set; }
-        public byte[]? Image { get; set; }
 
-        
+        public float Calories { get; set; }
+        public byte[]? Image { get; set; } = null;
+
+
         public int CategoryId { get; set; }
         public CategoryModel CategoryModel { get; set; }
 
         public int NutritionValueId { get; set; }
         public NutritionValueModel NutritionValueMNodel { get; set; }
 
-        
-        public Portion Portion{ get; set; }        
-        
+
+        public Portion Portion { get; set; }
+
         public float PortionSize { get; set; }
 
         public DateTime CreatedDate { get; set; }

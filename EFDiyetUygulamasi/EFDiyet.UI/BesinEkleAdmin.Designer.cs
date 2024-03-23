@@ -55,7 +55,8 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(54, 12);
+            pictureBox1.BackColor = Color.RosyBrown;
+            pictureBox1.Location = new Point(77, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(163, 96);
             pictureBox1.TabIndex = 0;
@@ -140,6 +141,7 @@
             button3.TabIndex = 10;
             button3.Text = "güncelle";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // textBox1
             // 
