@@ -1,7 +1,7 @@
 ﻿
 namespace efdiyet
 {
-    partial class GirisForm
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace efdiyet
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GirisForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             txtEmail = new TextBox();
             txtSifre = new TextBox();
             cmbSifreGoster = new CheckBox();
@@ -84,6 +84,7 @@ namespace efdiyet
             cmbSifreGoster.Text = "Şifreyi Göster";
             cmbSifreGoster.TextAlign = ContentAlignment.MiddleRight;
             cmbSifreGoster.UseVisualStyleBackColor = false;
+            cmbSifreGoster.Click += cmbSifreGoster_Click;
             // 
             // btnGirisYap
             // 
@@ -95,6 +96,7 @@ namespace efdiyet
             btnGirisYap.TabIndex = 3;
             btnGirisYap.Text = "Giriş Yap";
             btnGirisYap.UseVisualStyleBackColor = false;
+            btnGirisYap.Click += btnGirisYap_Click;
             // 
             // btnKayitOl
             // 
@@ -106,6 +108,7 @@ namespace efdiyet
             btnKayitOl.TabIndex = 4;
             btnKayitOl.Text = "Kayıt Ol";
             btnKayitOl.UseVisualStyleBackColor = false;
+            btnKayitOl.Click += btnKayitOl_Click;
             // 
             // lblHenuz
             // 
@@ -154,7 +157,7 @@ namespace efdiyet
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // Form1
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -172,8 +175,8 @@ namespace efdiyet
             Controls.Add(txtSifre);
             Controls.Add(txtEmail);
             DoubleBuffered = true;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "LoginForm";
+            Text = "Giriş Sayfası";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

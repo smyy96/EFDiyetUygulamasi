@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EFDiyet.UI
 {
-    public partial class RegisterPage : Form
+    public partial class UserRegister : Form
     {
-        public RegisterPage()
+        public UserRegister()
         {
             InitializeComponent();
         }
