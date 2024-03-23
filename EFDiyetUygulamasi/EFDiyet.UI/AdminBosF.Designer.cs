@@ -32,27 +32,23 @@
             pbBesinEkle = new PictureBox();
             pbOgunEkle = new PictureBox();
             pbAnaliz = new PictureBox();
-            pbCikisAdmin = new PictureBox();
             lblDietAppA = new Label();
             lblBesinEkle = new Label();
-            lblOgunEkle = new Label();
+            lblEkDegisimler = new Label();
             lblAnalizA = new Label();
             lblAdmin = new Label();
             ((System.ComponentModel.ISupportInitialize)pbBesinEkle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbOgunEkle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAnaliz).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbCikisAdmin).BeginInit();
             SuspendLayout();
             // 
             // pbBesinEkle
             // 
             pbBesinEkle.BackColor = Color.FromArgb(255, 208, 177);
-            pbBesinEkle.BorderStyle = BorderStyle.Fixed3D;
             pbBesinEkle.Image = (Image)resources.GetObject("pbBesinEkle.Image");
-            pbBesinEkle.Location = new Point(202, 12);
-            pbBesinEkle.Margin = new Padding(3, 4, 3, 4);
+            pbBesinEkle.Location = new Point(177, 9);
             pbBesinEkle.Name = "pbBesinEkle";
-            pbBesinEkle.Size = new Size(49, 49);
+            pbBesinEkle.Size = new Size(43, 38);
             pbBesinEkle.SizeMode = PictureBoxSizeMode.StretchImage;
             pbBesinEkle.TabIndex = 0;
             pbBesinEkle.TabStop = false;
@@ -60,12 +56,10 @@
             // pbOgunEkle
             // 
             pbOgunEkle.BackColor = Color.FromArgb(255, 208, 177);
-            pbOgunEkle.BorderStyle = BorderStyle.Fixed3D;
             pbOgunEkle.Image = (Image)resources.GetObject("pbOgunEkle.Image");
-            pbOgunEkle.Location = new Point(381, 12);
-            pbOgunEkle.Margin = new Padding(3, 4, 3, 4);
+            pbOgunEkle.Location = new Point(327, 9);
             pbOgunEkle.Name = "pbOgunEkle";
-            pbOgunEkle.Size = new Size(48, 49);
+            pbOgunEkle.Size = new Size(42, 38);
             pbOgunEkle.SizeMode = PictureBoxSizeMode.StretchImage;
             pbOgunEkle.TabIndex = 1;
             pbOgunEkle.TabStop = false;
@@ -73,37 +67,22 @@
             // pbAnaliz
             // 
             pbAnaliz.BackColor = Color.FromArgb(255, 208, 177);
-            pbAnaliz.BorderStyle = BorderStyle.Fixed3D;
             pbAnaliz.Image = (Image)resources.GetObject("pbAnaliz.Image");
-            pbAnaliz.Location = new Point(567, 12);
-            pbAnaliz.Margin = new Padding(3, 4, 3, 4);
+            pbAnaliz.Location = new Point(496, 9);
             pbAnaliz.Name = "pbAnaliz";
-            pbAnaliz.Size = new Size(51, 49);
+            pbAnaliz.Size = new Size(45, 38);
             pbAnaliz.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAnaliz.TabIndex = 2;
             pbAnaliz.TabStop = false;
-            // 
-            // pbCikisAdmin
-            // 
-            pbCikisAdmin.BackColor = Color.FromArgb(255, 208, 177);
-            pbCikisAdmin.BorderStyle = BorderStyle.Fixed3D;
-            pbCikisAdmin.Image = (Image)resources.GetObject("pbCikisAdmin.Image");
-            pbCikisAdmin.Location = new Point(858, 21);
-            pbCikisAdmin.Margin = new Padding(3, 4, 3, 4);
-            pbCikisAdmin.Name = "pbCikisAdmin";
-            pbCikisAdmin.Size = new Size(42, 40);
-            pbCikisAdmin.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbCikisAdmin.TabIndex = 3;
-            pbCikisAdmin.TabStop = false;
             // 
             // lblDietAppA
             // 
             lblDietAppA.AutoSize = true;
             lblDietAppA.BackColor = Color.FromArgb(255, 208, 177);
             lblDietAppA.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblDietAppA.Location = new Point(25, 12);
+            lblDietAppA.Location = new Point(22, 9);
             lblDietAppA.Name = "lblDietAppA";
-            lblDietAppA.Size = new Size(136, 41);
+            lblDietAppA.Size = new Size(108, 32);
             lblDietAppA.TabIndex = 4;
             lblDietAppA.Text = "DietApp";
             // 
@@ -112,31 +91,31 @@
             lblBesinEkle.AutoSize = true;
             lblBesinEkle.BackColor = Color.FromArgb(255, 208, 177);
             lblBesinEkle.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblBesinEkle.Location = new Point(258, 24);
+            lblBesinEkle.Location = new Point(226, 18);
             lblBesinEkle.Name = "lblBesinEkle";
-            lblBesinEkle.Size = new Size(113, 30);
+            lblBesinEkle.Size = new Size(86, 23);
             lblBesinEkle.TabIndex = 5;
             lblBesinEkle.Text = "Besin Ekle";
             // 
-            // lblOgunEkle
+            // lblEkDegisimler
             // 
-            lblOgunEkle.AutoSize = true;
-            lblOgunEkle.BackColor = Color.FromArgb(255, 208, 177);
-            lblOgunEkle.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblOgunEkle.Location = new Point(435, 24);
-            lblOgunEkle.Name = "lblOgunEkle";
-            lblOgunEkle.Size = new Size(116, 30);
-            lblOgunEkle.TabIndex = 6;
-            lblOgunEkle.Text = "Öğün Ekle";
+            lblEkDegisimler.AutoSize = true;
+            lblEkDegisimler.BackColor = Color.FromArgb(255, 208, 177);
+            lblEkDegisimler.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblEkDegisimler.Location = new Point(365, 17);
+            lblEkDegisimler.Name = "lblEkDegisimler";
+            lblEkDegisimler.Size = new Size(113, 23);
+            lblEkDegisimler.TabIndex = 6;
+            lblEkDegisimler.Text = "Ek Değişimler";
             // 
             // lblAnalizA
             // 
             lblAnalizA.AutoSize = true;
             lblAnalizA.BackColor = Color.FromArgb(255, 208, 177);
             lblAnalizA.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblAnalizA.Location = new Point(640, 24);
+            lblAnalizA.Location = new Point(560, 18);
             lblAnalizA.Name = "lblAnalizA";
-            lblAnalizA.Size = new Size(74, 30);
+            lblAnalizA.Size = new Size(56, 23);
             lblAnalizA.TabIndex = 7;
             lblAnalizA.Text = "Analiz";
             // 
@@ -145,36 +124,33 @@
             lblAdmin.AutoSize = true;
             lblAdmin.BackColor = Color.FromArgb(255, 208, 177);
             lblAdmin.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblAdmin.Location = new Point(742, 24);
+            lblAdmin.Location = new Point(688, 18);
             lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(79, 30);
+            lblAdmin.Size = new Size(60, 23);
             lblAdmin.TabIndex = 8;
             lblAdmin.Text = "Admin";
             // 
             // AdminBosF
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(916, 582);
+            ClientSize = new Size(802, 436);
             Controls.Add(lblAdmin);
             Controls.Add(lblAnalizA);
-            Controls.Add(lblOgunEkle);
+            Controls.Add(lblEkDegisimler);
             Controls.Add(lblBesinEkle);
             Controls.Add(lblDietAppA);
-            Controls.Add(pbCikisAdmin);
             Controls.Add(pbAnaliz);
             Controls.Add(pbOgunEkle);
             Controls.Add(pbBesinEkle);
             DoubleBuffered = true;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "AdminBosF";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pbBesinEkle).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbOgunEkle).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAnaliz).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbCikisAdmin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,10 +160,9 @@
         private PictureBox pbBesinEkle;
         private PictureBox pbOgunEkle;
         private PictureBox pbAnaliz;
-        private PictureBox pbCikisAdmin;
         private Label lblDietAppA;
         private Label lblBesinEkle;
-        private Label lblOgunEkle;
+        private Label lblEkDegisimler;
         private Label lblAnalizA;
         private Label lblAdmin;
     }
