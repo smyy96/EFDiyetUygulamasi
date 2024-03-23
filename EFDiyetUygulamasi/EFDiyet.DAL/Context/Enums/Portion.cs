@@ -8,6 +8,7 @@ namespace EFDiyet.DAL.Context.Enums
 {
     public enum Portion
     {
+       
         Tabak = 1,
         Bardak,
         Dilim,
@@ -20,6 +21,7 @@ namespace EFDiyet.DAL.Context.Enums
         Gram,
         Kalıp,
         Parça,
-        Adet
+        Adet,
+        Diğer
     }
 }

@@ -9,12 +9,12 @@ namespace EFDiyet.BLL.Model
 {
     public class NutritionModel
     {
+        public int NutritionId { get; set; }
+
         public string NutritionName { get; set; }
        
-        
-        
         public float Calories { get; set; }
-        public string? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         
         public int CategoryId { get; set; }

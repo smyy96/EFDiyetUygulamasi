@@ -52,8 +52,9 @@ namespace EFDiyet.DAL.Repository.Abstract
             entity.DeletedDate = DateTime.Now;
             entity.IsActive = false;    
 
-            _dbSet.Update(entity);
-            _dbContext.SaveChanges();   
+            //_dbContext.Entry(entity).State = EntityState.Detached;
+            Update(entity);
+            //_dbContext.SaveChanges();   
         }
 
         public void Remove(TEntity entity) //Hard Delete
@@ -69,7 +70,7 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         public TEntity? GetById(int id)
         {
-            return _dbSet.FirstOrDefault(x => x.Id == id && x.IsActive == true);
+            return _dbSet.AsNoTracking().FirstOrDefault(x => x.Id == id && x.IsActive == true);
         }
 
         public IQueryable<TEntity> GetAllWithIncludes()

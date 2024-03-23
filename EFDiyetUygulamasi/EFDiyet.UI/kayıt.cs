@@ -278,7 +278,7 @@ namespace EFDiyet.UI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //resimi veritabanından cekip yükleme
         {
             UserManager user = new UserManager();
             var data = user.GetById(6).Picture;
