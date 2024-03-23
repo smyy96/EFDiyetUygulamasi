@@ -90,7 +90,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(35, 113);
+            label8.Location = new Point(40, 156);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 18;
@@ -154,7 +154,7 @@
             // 
             cmbScrtyQue.FormattingEnabled = true;
             cmbScrtyQue.Items.AddRange(new object[] { "Hangi futbol takımını tutuyorsunuz?", "İlkokul öğretmeninizin adı nedir?", "İlk evcil hayvanınızın adı nedir?", "İlk aşkınızın adı nedir?", "En sevdiğiniz film hangisidir?", "En sevdiğiniz renk nedir?", "En sevdiğiniz yiyecek nedir?", "İlk çocukluk arkadaşınızın adı nedir?" });
-            cmbScrtyQue.Location = new Point(13, 64);
+            cmbScrtyQue.Location = new Point(22, 104);
             cmbScrtyQue.Margin = new Padding(3, 2, 3, 2);
             cmbScrtyQue.Name = "cmbScrtyQue";
             cmbScrtyQue.Size = new Size(162, 23);
@@ -165,7 +165,7 @@
             label_GuvenlikSorusu.AutoSize = true;
             label_GuvenlikSorusu.BackColor = Color.RosyBrown;
             label_GuvenlikSorusu.BorderStyle = BorderStyle.Fixed3D;
-            label_GuvenlikSorusu.Location = new Point(15, 23);
+            label_GuvenlikSorusu.Location = new Point(25, 85);
             label_GuvenlikSorusu.Name = "label_GuvenlikSorusu";
             label_GuvenlikSorusu.Size = new Size(133, 17);
             label_GuvenlikSorusu.TabIndex = 7;
@@ -176,7 +176,7 @@
             label_Parola.AutoSize = true;
             label_Parola.BackColor = Color.RosyBrown;
             label_Parola.BorderStyle = BorderStyle.Fixed3D;
-            label_Parola.Location = new Point(13, 158);
+            label_Parola.Location = new Point(27, 238);
             label_Parola.Name = "label_Parola";
             label_Parola.Size = new Size(101, 17);
             label_Parola.TabIndex = 9;
@@ -185,7 +185,7 @@
             // txt_Parola
             // 
             txt_Parola.ForeColor = Color.DarkGray;
-            txt_Parola.Location = new Point(13, 174);
+            txt_Parola.Location = new Point(27, 259);
             txt_Parola.Margin = new Padding(3, 2, 3, 2);
             txt_Parola.Name = "txt_Parola";
             txt_Parola.PlaceholderText = "Parolanızı giriniz";
@@ -195,7 +195,7 @@
             // txt_ParolaTekrar
             // 
             txt_ParolaTekrar.ForeColor = Color.DarkGray;
-            txt_ParolaTekrar.Location = new Point(13, 193);
+            txt_ParolaTekrar.Location = new Point(27, 285);
             txt_ParolaTekrar.Margin = new Padding(3, 2, 3, 2);
             txt_ParolaTekrar.Name = "txt_ParolaTekrar";
             txt_ParolaTekrar.PlaceholderText = "Parolanızı tekrar giriniz";
@@ -209,7 +209,7 @@
             pictureBox3.Location = new Point(244, 0);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(693, 431);
+            pictureBox3.Size = new Size(633, 431);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 17;
             pictureBox3.TabStop = false;
@@ -230,13 +230,13 @@
             panel3.Location = new Point(558, 8);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(211, 315);
+            panel3.Size = new Size(239, 398);
             panel3.TabIndex = 20;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(16, 91);
+            label7.Location = new Point(22, 149);
             label7.Name = "label7";
             label7.Size = new Size(38, 15);
             label7.TabIndex = 22;
@@ -245,7 +245,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(16, 34);
+            label6.Location = new Point(25, 64);
             label6.Name = "label6";
             label6.Size = new Size(38, 15);
             label6.TabIndex = 21;
@@ -256,7 +256,7 @@
             label_GuvenlikSorusuCevabi.AutoSize = true;
             label_GuvenlikSorusuCevabi.BackColor = Color.RosyBrown;
             label_GuvenlikSorusuCevabi.BorderStyle = BorderStyle.Fixed3D;
-            label_GuvenlikSorusuCevabi.Location = new Point(13, 104);
+            label_GuvenlikSorusuCevabi.Location = new Point(23, 169);
             label_GuvenlikSorusuCevabi.Name = "label_GuvenlikSorusuCevabi";
             label_GuvenlikSorusuCevabi.Size = new Size(200, 17);
             label_GuvenlikSorusuCevabi.TabIndex = 14;
@@ -264,7 +264,7 @@
             // 
             // txt_GuvenlikSorusuCevabi
             // 
-            txt_GuvenlikSorusuCevabi.Location = new Point(13, 118);
+            txt_GuvenlikSorusuCevabi.Location = new Point(24, 190);
             txt_GuvenlikSorusuCevabi.Margin = new Padding(3, 2, 3, 2);
             txt_GuvenlikSorusuCevabi.Name = "txt_GuvenlikSorusuCevabi";
             txt_GuvenlikSorusuCevabi.Size = new Size(184, 23);
@@ -272,7 +272,7 @@
             // 
             // btn_Kayit
             // 
-            btn_Kayit.Location = new Point(128, 240);
+            btn_Kayit.Location = new Point(141, 330);
             btn_Kayit.Margin = new Padding(3, 2, 3, 2);
             btn_Kayit.Name = "btn_Kayit";
             btn_Kayit.Size = new Size(82, 26);
@@ -436,7 +436,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 208, 177);
-            ClientSize = new Size(939, 431);
+            ClientSize = new Size(873, 431);
             Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(pictureBox3);
