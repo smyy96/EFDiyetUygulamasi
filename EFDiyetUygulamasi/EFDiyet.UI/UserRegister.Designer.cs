@@ -30,25 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserRegister));
             panel1 = new Panel();
+            label8 = new Label();
             label_DogumTarihi = new Label();
             btn_erkek = new RadioButton();
             btn_kadin = new RadioButton();
             dateTimePicker1 = new DateTimePicker();
             label_yasControl = new Label();
-            comboBox1 = new ComboBox();
+            cmbScrtyQue = new ComboBox();
             label_GuvenlikSorusu = new Label();
             label_Parola = new Label();
             txt_Parola = new TextBox();
             txt_ParolaTekrar = new TextBox();
             pictureBox3 = new PictureBox();
             panel3 = new Panel();
+            label7 = new Label();
+            label6 = new Label();
             label_GuvenlikSorusuCevabi = new Label();
             txt_GuvenlikSorusuCevabi = new TextBox();
             btn_Kayit = new Button();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
-            btn_resim = new Button();
-            textBox1 = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            pctBxImage = new PictureBox();
+            txt_Kilo = new TextBox();
             txt_Ad = new TextBox();
             label_Kilo = new Label();
             txt_Soyad = new TextBox();
@@ -59,12 +66,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pctBxImage).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(254, 222, 200);
+            panel1.Controls.Add(label8);
             panel1.Controls.Add(label_DogumTarihi);
             panel1.Controls.Add(btn_erkek);
             panel1.Controls.Add(btn_kadin);
@@ -75,8 +83,17 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(246, 376);
+            panel1.Size = new Size(246, 441);
             panel1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(40, 151);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 18;
+            label8.Text = "label8";
             // 
             // label_DogumTarihi
             // 
@@ -132,15 +149,15 @@
             label_yasControl.Text = "Bu uygulama 18-35 yaş arası bireyleri kapsamaktadır!";
             label_yasControl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // comboBox1
+            // cmbScrtyQue
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Hangi futbol takımını tutuyorsunuz?", "İlkokul öğretmeninizin adı nedir?", "İlk evcil hayvanınızın adı nedir?", "İlk aşkınızın adı nedir?", "En sevdiğiniz film hangisidir?", "En sevdiğiniz renk nedir?", "En sevdiğiniz yiyecek nedir?", "İlk çocukluk arkadaşınızın adı nedir?" });
-            comboBox1.Location = new Point(15, 85);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(184, 23);
-            comboBox1.TabIndex = 6;
+            cmbScrtyQue.FormattingEnabled = true;
+            cmbScrtyQue.Items.AddRange(new object[] { "Hangi futbol takımını tutuyorsunuz?", "İlkokul öğretmeninizin adı nedir?", "İlk evcil hayvanınızın adı nedir?", "İlk aşkınızın adı nedir?", "En sevdiğiniz film hangisidir?", "En sevdiğiniz renk nedir?", "En sevdiğiniz yiyecek nedir?", "İlk çocukluk arkadaşınızın adı nedir?" });
+            cmbScrtyQue.Location = new Point(15, 85);
+            cmbScrtyQue.Margin = new Padding(3, 2, 3, 2);
+            cmbScrtyQue.Name = "cmbScrtyQue";
+            cmbScrtyQue.Size = new Size(184, 23);
+            cmbScrtyQue.TabIndex = 6;
             // 
             // label_GuvenlikSorusu
             // 
@@ -158,7 +175,7 @@
             label_Parola.AutoSize = true;
             label_Parola.BackColor = Color.RosyBrown;
             label_Parola.BorderStyle = BorderStyle.Fixed3D;
-            label_Parola.Location = new Point(15, 202);
+            label_Parola.Location = new Point(15, 210);
             label_Parola.Name = "label_Parola";
             label_Parola.Size = new Size(101, 17);
             label_Parola.TabIndex = 9;
@@ -167,7 +184,7 @@
             // txt_Parola
             // 
             txt_Parola.ForeColor = Color.DarkGray;
-            txt_Parola.Location = new Point(15, 224);
+            txt_Parola.Location = new Point(15, 232);
             txt_Parola.Margin = new Padding(3, 2, 3, 2);
             txt_Parola.Name = "txt_Parola";
             txt_Parola.PlaceholderText = "Parolanızı giriniz";
@@ -177,7 +194,7 @@
             // txt_ParolaTekrar
             // 
             txt_ParolaTekrar.ForeColor = Color.DarkGray;
-            txt_ParolaTekrar.Location = new Point(15, 249);
+            txt_ParolaTekrar.Location = new Point(15, 257);
             txt_ParolaTekrar.Margin = new Padding(3, 2, 3, 2);
             txt_ParolaTekrar.Name = "txt_ParolaTekrar";
             txt_ParolaTekrar.PlaceholderText = "Parolanızı tekrar giriniz";
@@ -190,33 +207,53 @@
             pictureBox3.Location = new Point(244, 0);
             pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(713, 376);
+            pictureBox3.Size = new Size(729, 441);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 17;
             pictureBox3.TabStop = false;
             // 
             // panel3
             // 
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(label_GuvenlikSorusuCevabi);
             panel3.Controls.Add(txt_GuvenlikSorusuCevabi);
             panel3.Controls.Add(btn_Kayit);
             panel3.Controls.Add(label_GuvenlikSorusu);
-            panel3.Controls.Add(comboBox1);
+            panel3.Controls.Add(cmbScrtyQue);
             panel3.Controls.Add(label_Parola);
             panel3.Controls.Add(txt_ParolaTekrar);
             panel3.Controls.Add(txt_Parola);
-            panel3.Location = new Point(638, 19);
+            panel3.Location = new Point(638, 11);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(241, 338);
+            panel3.Size = new Size(241, 419);
             panel3.TabIndex = 20;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(18, 121);
+            label7.Name = "label7";
+            label7.Size = new Size(38, 15);
+            label7.TabIndex = 22;
+            label7.Text = "label7";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(18, 45);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 21;
+            label6.Text = "label6";
             // 
             // label_GuvenlikSorusuCevabi
             // 
             label_GuvenlikSorusuCevabi.AutoSize = true;
             label_GuvenlikSorusuCevabi.BackColor = Color.RosyBrown;
             label_GuvenlikSorusuCevabi.BorderStyle = BorderStyle.Fixed3D;
-            label_GuvenlikSorusuCevabi.Location = new Point(15, 112);
+            label_GuvenlikSorusuCevabi.Location = new Point(15, 138);
             label_GuvenlikSorusuCevabi.Name = "label_GuvenlikSorusuCevabi";
             label_GuvenlikSorusuCevabi.Size = new Size(200, 17);
             label_GuvenlikSorusuCevabi.TabIndex = 14;
@@ -224,7 +261,7 @@
             // 
             // txt_GuvenlikSorusuCevabi
             // 
-            txt_GuvenlikSorusuCevabi.Location = new Point(15, 131);
+            txt_GuvenlikSorusuCevabi.Location = new Point(15, 157);
             txt_GuvenlikSorusuCevabi.Margin = new Padding(3, 2, 3, 2);
             txt_GuvenlikSorusuCevabi.Name = "txt_GuvenlikSorusuCevabi";
             txt_GuvenlikSorusuCevabi.Size = new Size(184, 23);
@@ -232,70 +269,109 @@
             // 
             // btn_Kayit
             // 
-            btn_Kayit.Location = new Point(148, 294);
+            btn_Kayit.Location = new Point(146, 320);
             btn_Kayit.Margin = new Padding(3, 2, 3, 2);
             btn_Kayit.Name = "btn_Kayit";
             btn_Kayit.Size = new Size(82, 26);
             btn_Kayit.TabIndex = 12;
             btn_Kayit.Text = "Kayıt Ol";
             btn_Kayit.UseVisualStyleBackColor = true;
+            btn_Kayit.Click += btn_Kayit_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(btn_resim);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pctBxImage);
+            panel2.Controls.Add(txt_Kilo);
             panel2.Controls.Add(txt_Ad);
             panel2.Controls.Add(label_Kilo);
             panel2.Controls.Add(txt_Soyad);
             panel2.Controls.Add(txt_Boy);
             panel2.Controls.Add(txt_Mail);
             panel2.Controls.Add(label_Boy);
-            panel2.Location = new Point(318, 19);
+            panel2.Location = new Point(318, 11);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(241, 338);
+            panel2.Size = new Size(248, 419);
             panel2.TabIndex = 18;
             // 
-            // pictureBox1
+            // label5
             // 
-            pictureBox1.Location = new Point(71, 23);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 59);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            label5.AutoSize = true;
+            label5.Location = new Point(55, 326);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 20;
+            label5.Text = "label5";
             // 
-            // btn_resim
+            // label4
             // 
-            btn_resim.BackColor = Color.RosyBrown;
-            btn_resim.ForeColor = Color.DarkRed;
-            btn_resim.Location = new Point(71, 87);
-            btn_resim.Margin = new Padding(3, 2, 3, 2);
-            btn_resim.Name = "btn_resim";
-            btn_resim.Size = new Size(82, 22);
-            btn_resim.TabIndex = 2;
-            btn_resim.Text = "Yükle";
-            btn_resim.UseVisualStyleBackColor = false;
+            label4.AutoSize = true;
+            label4.Location = new Point(55, 255);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 19;
+            label4.Text = "label4";
             // 
-            // textBox1
+            // label3
             // 
-            textBox1.ForeColor = Color.DarkGray;
-            textBox1.Location = new Point(61, 297);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Örnek: 50.2 kg";
-            textBox1.Size = new Size(110, 23);
-            textBox1.TabIndex = 15;
+            label3.AutoSize = true;
+            label3.Location = new Point(55, 204);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 18;
+            label3.Text = "label3";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(54, 156);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 17;
+            label2.Text = "label2";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(54, 107);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 16;
+            label1.Text = "label1";
+            // 
+            // pctBxImage
+            // 
+            pctBxImage.Location = new Point(62, 22);
+            pctBxImage.Margin = new Padding(3, 2, 3, 2);
+            pctBxImage.Name = "pctBxImage";
+            pctBxImage.Size = new Size(114, 74);
+            pctBxImage.TabIndex = 1;
+            pctBxImage.TabStop = false;
+            pctBxImage.Click += pctBxImage_Click;
+            // 
+            // txt_Kilo
+            // 
+            txt_Kilo.ForeColor = Color.DarkGray;
+            txt_Kilo.Location = new Point(52, 365);
+            txt_Kilo.Margin = new Padding(3, 2, 3, 2);
+            txt_Kilo.Name = "txt_Kilo";
+            txt_Kilo.PlaceholderText = "Örnek: 50.2 kg";
+            txt_Kilo.Size = new Size(147, 23);
+            txt_Kilo.TabIndex = 15;
             // 
             // txt_Ad
             // 
             txt_Ad.ForeColor = Color.DarkGray;
-            txt_Ad.Location = new Point(61, 126);
+            txt_Ad.Location = new Point(52, 126);
             txt_Ad.Margin = new Padding(3, 2, 3, 2);
             txt_Ad.Name = "txt_Ad";
             txt_Ad.PlaceholderText = "Adınızı giriniz";
-            txt_Ad.Size = new Size(110, 23);
+            txt_Ad.Size = new Size(147, 23);
             txt_Ad.TabIndex = 3;
             // 
             // label_Kilo
@@ -304,7 +380,7 @@
             label_Kilo.BackColor = Color.RosyBrown;
             label_Kilo.BorderStyle = BorderStyle.Fixed3D;
             label_Kilo.ImageAlign = ContentAlignment.MiddleLeft;
-            label_Kilo.Location = new Point(61, 278);
+            label_Kilo.Location = new Point(52, 346);
             label_Kilo.Name = "label_Kilo";
             label_Kilo.Size = new Size(90, 17);
             label_Kilo.TabIndex = 14;
@@ -314,31 +390,31 @@
             // txt_Soyad
             // 
             txt_Soyad.ForeColor = Color.DarkGray;
-            txt_Soyad.Location = new Point(61, 151);
+            txt_Soyad.Location = new Point(52, 175);
             txt_Soyad.Margin = new Padding(3, 2, 3, 2);
             txt_Soyad.Name = "txt_Soyad";
             txt_Soyad.PlaceholderText = "Soyadınızı giriniz";
-            txt_Soyad.Size = new Size(110, 23);
+            txt_Soyad.Size = new Size(147, 23);
             txt_Soyad.TabIndex = 4;
             // 
             // txt_Boy
             // 
             txt_Boy.ForeColor = Color.DarkGray;
-            txt_Boy.Location = new Point(61, 242);
+            txt_Boy.Location = new Point(52, 292);
             txt_Boy.Margin = new Padding(3, 2, 3, 2);
             txt_Boy.Name = "txt_Boy";
             txt_Boy.PlaceholderText = "Örnek: 160 cm";
-            txt_Boy.Size = new Size(110, 23);
+            txt_Boy.Size = new Size(147, 23);
             txt_Boy.TabIndex = 13;
             // 
             // txt_Mail
             // 
             txt_Mail.ForeColor = Color.DarkGray;
-            txt_Mail.Location = new Point(61, 188);
+            txt_Mail.Location = new Point(52, 223);
             txt_Mail.Margin = new Padding(3, 2, 3, 2);
             txt_Mail.Name = "txt_Mail";
             txt_Mail.PlaceholderText = "Mail adresi giriniz";
-            txt_Mail.Size = new Size(110, 23);
+            txt_Mail.Size = new Size(147, 23);
             txt_Mail.TabIndex = 5;
             // 
             // label_Boy
@@ -346,7 +422,7 @@
             label_Boy.AutoSize = true;
             label_Boy.BackColor = Color.RosyBrown;
             label_Boy.BorderStyle = BorderStyle.Fixed3D;
-            label_Boy.Location = new Point(61, 225);
+            label_Boy.Location = new Point(52, 275);
             label_Boy.Name = "label_Boy";
             label_Boy.Size = new Size(97, 17);
             label_Boy.TabIndex = 12;
@@ -357,7 +433,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 208, 177);
-            ClientSize = new Size(949, 376);
+            ClientSize = new Size(946, 441);
             Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(pictureBox3);
@@ -366,6 +442,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "UserRegister";
             Text = "Kullanıcı Kayıt";
+            FormClosed += UserRegister_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -373,7 +450,7 @@
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pctBxImage).EndInit();
             ResumeLayout(false);
         }
 
@@ -384,7 +461,7 @@
         private DateTimePicker dateTimePicker1;
         private RadioButton btn_erkek;
         private RadioButton btn_kadin;
-        private ComboBox comboBox1;
+        private ComboBox cmbScrtyQue;
         private Label label_GuvenlikSorusu;
         private Label label_Parola;
         private TextBox txt_Parola;
@@ -392,9 +469,8 @@
         private PictureBox pictureBox3;
         private Panel panel3;
         private Panel panel2;
-        private PictureBox pictureBox1;
-        private Button btn_resim;
-        private TextBox textBox1;
+        private PictureBox pctBxImage;
+        private TextBox txt_Kilo;
         private TextBox txt_Ad;
         private Label label_Kilo;
         private TextBox txt_Soyad;
@@ -405,5 +481,13 @@
         private Button btn_Kayit;
         private Label label_GuvenlikSorusuCevabi;
         private TextBox txt_GuvenlikSorusuCevabi;
+        private Label label1;
+        private Label label3;
+        private Label label2;
+        private Label label5;
+        private Label label4;
+        private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }
