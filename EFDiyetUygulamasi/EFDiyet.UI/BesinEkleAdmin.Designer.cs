@@ -48,13 +48,14 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(42, 12);
+            pictureBox1.Location = new Point(54, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(163, 96);
             pictureBox1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(66, 187);
+            textBox2.Location = new Point(77, 188);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "kalorisi";
             textBox2.Size = new Size(153, 23);
@@ -71,7 +72,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(66, 231);
+            textBox3.Location = new Point(77, 232);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "porsiyon miktarı";
             textBox3.Size = new Size(153, 23);
@@ -109,10 +110,11 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(594, 398);
             dataGridView1.TabIndex = 7;
+            dataGridView1.DoubleClick += dataGridView1_DoubleClick;
             // 
             // button1
             // 
-            button1.Location = new Point(21, 438);
+            button1.Location = new Point(14, 425);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 8;
@@ -122,16 +124,17 @@
             // 
             // button2
             // 
-            button2.Location = new Point(109, 438);
+            button2.Location = new Point(102, 425);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 9;
             button2.Text = "sil";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(196, 438);
+            button3.Location = new Point(189, 425);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 10;
@@ -140,7 +143,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(66, 141);
+            textBox1.Location = new Point(77, 142);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "besinadi";
             textBox1.Size = new Size(153, 23);
@@ -177,7 +180,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(66, 123);
+            label4.Location = new Point(77, 124);
             label4.Name = "label4";
             label4.Size = new Size(38, 15);
             label4.TabIndex = 14;
@@ -186,7 +189,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(67, 169);
+            label5.Location = new Point(78, 170);
             label5.Name = "label5";
             label5.Size = new Size(38, 15);
             label5.TabIndex = 15;
@@ -195,7 +198,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(66, 213);
+            label6.Location = new Point(77, 214);
             label6.Name = "label6";
             label6.Size = new Size(38, 15);
             label6.TabIndex = 16;
@@ -228,11 +231,22 @@
             label9.TabIndex = 19;
             label9.Text = "label9";
             // 
+            // button4
+            // 
+            button4.Location = new Point(80, 457);
+            button4.Name = "button4";
+            button4.Size = new Size(125, 23);
+            button4.TabIndex = 20;
+            button4.Text = "Sayfayı Temisle";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // BesinEkleAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(898, 492);
+            Controls.Add(button4);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -283,5 +297,6 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private Button button4;
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EFDiyet.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class DbOlusturma1 : Migration
+    public partial class dbDietOlusturma : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -92,7 +92,7 @@ namespace EFDiyet.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NutritionName = table.Column<string>(type: "nvarchar(110)", maxLength: 110, nullable: false),
                     Calories = table.Column<float>(type: "real", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     NutritionValueId = table.Column<int>(type: "int", nullable: false),
                     Portion = table.Column<int>(type: "int", nullable: false),
@@ -128,7 +128,7 @@ namespace EFDiyet.DAL.Migrations
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     UserType = table.Column<int>(type: "int", nullable: false),
                     SecurityQuestion = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Answer = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -193,13 +193,13 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "CategoryName", "CreatedDate", "DeletedDate", "IsActive", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, "Meyve", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5493), null, true, null },
-                    { 2, "Sebze", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5508), null, true, null },
-                    { 3, "Et Ürünleri", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5510), null, true, null },
-                    { 4, "Salata", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5512), null, true, null },
-                    { 5, "Unlu Mamuller", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5514), null, true, null },
-                    { 6, "Tatlı", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5516), null, true, null },
-                    { 7, "İçecek", new DateTime(2024, 3, 22, 2, 39, 26, 303, DateTimeKind.Local).AddTicks(5518), null, true, null }
+                    { 1, "Meyve", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2062), null, true, null },
+                    { 2, "Sebze", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2073), null, true, null },
+                    { 3, "Et Ürünleri", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2075), null, true, null },
+                    { 4, "Salata", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2076), null, true, null },
+                    { 5, "Unlu Mamuller", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2078), null, true, null },
+                    { 6, "Tatlı", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2079), null, true, null },
+                    { 7, "İçecek", new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2081), null, true, null }
                 });
 
             migrationBuilder.InsertData(
@@ -207,9 +207,9 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "CreatedDate", "DeletedDate", "IsActive", "MealName", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 22, 2, 39, 26, 304, DateTimeKind.Local).AddTicks(2182), null, true, "Kahvaltı", null },
-                    { 2, new DateTime(2024, 3, 22, 2, 39, 26, 304, DateTimeKind.Local).AddTicks(2194), null, true, "Öğle Yemeği", null },
-                    { 3, new DateTime(2024, 3, 22, 2, 39, 26, 304, DateTimeKind.Local).AddTicks(2196), null, true, "Akşam Yemeği", null }
+                    { 1, new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7142), null, true, "Kahvaltı", null },
+                    { 2, new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7148), null, true, "Öğle Yemeği", null },
+                    { 3, new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7150), null, true, "Akşam Yemeği", null }
                 });
 
             migrationBuilder.InsertData(
@@ -217,8 +217,8 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "CreatedDate", "DeletedDate", "IsActive", "NutritionValueName", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 22, 2, 39, 26, 305, DateTimeKind.Local).AddTicks(2365), null, true, "Karbonhidrat", null },
-                    { 2, new DateTime(2024, 3, 22, 2, 39, 26, 305, DateTimeKind.Local).AddTicks(2372), null, true, "Protein", null }
+                    { 1, new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(3589), null, true, "Karbonhidrat", null },
+                    { 2, new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(3594), null, true, "Protein", null }
                 });
 
             migrationBuilder.InsertData(
@@ -226,8 +226,8 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "BirthDate", "CreatedDate", "DeletedDate", "Gender", "Height", "IsActive", "UpdatedDate", "Weight" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(3112), null, 1, 175.5f, true, null, 50f },
-                    { 2, new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(3125), null, 1, 175.5f, true, null, 50f }
+                    { 1, new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(106), null, 1, 175.5f, true, null, 50f },
+                    { 2, new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(110), null, 1, 175.5f, true, null, 50f }
                 });
 
             migrationBuilder.InsertData(
@@ -235,8 +235,8 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "Calories", "CategoryId", "CreatedDate", "DeletedDate", "Image", "IsActive", "NutritionName", "NutritionValueId", "Portion", "PortionSize", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 52f, 1, new DateTime(2024, 3, 22, 2, 39, 26, 305, DateTimeKind.Local).AddTicks(76), null, null, true, "Elma", 1, 13, 1f, null },
-                    { 2, 18f, 2, new DateTime(2024, 3, 22, 2, 39, 26, 305, DateTimeKind.Local).AddTicks(90), null, null, true, "Domates", 2, 13, 1f, null }
+                    { 1, 52f, 1, new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(2136), null, null, true, "Elma", 1, 13, 1f, null },
+                    { 2, 18f, 2, new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(2143), null, null, true, "Domates", 2, 13, 1f, null }
                 });
 
             migrationBuilder.InsertData(
@@ -244,8 +244,8 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "Answer", "CreatedDate", "DeletedDate", "Email", "IsActive", "Name", "Password", "Picture", "SecurityQuestion", "Surname", "UpdatedDate", "UserDetailId", "UserType" },
                 values: new object[,]
                 {
-                    { 1, "5", new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(767), null, "ish@gmail.com.com", true, "ılgısü", "1234", null, "Favori sayın kaçtır?", "Hiv", null, 1, 2 },
-                    { 2, "1", new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(786), null, "admin@gmail.com", true, "Hivda Ilgın", "admin1234", null, "Favori sayın kaçtır?", "Sümeyye", null, 2, 1 }
+                    { 1, "5", new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(8657), null, "ish@gmail.com.com", true, "ılgısü", "1234", null, "Favori sayın kaçtır?", "Hiv", null, 1, 2 },
+                    { 2, "1", new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(8666), null, "admin@gmail.com", true, "Hivda Ilgın", "admin1234", null, "Favori sayın kaçtır?", "Sümeyye", null, 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -253,8 +253,8 @@ namespace EFDiyet.DAL.Migrations
                 columns: new[] { "Id", "CreatedDate", "DeletedDate", "IsActive", "MealId", "NutritionId", "Quantity", "UpdatedDate", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(4451), null, true, 1, 1, 2, null, 1 },
-                    { 2, new DateTime(2024, 3, 22, 2, 39, 26, 306, DateTimeKind.Local).AddTicks(4457), null, true, 2, 2, 1, null, 1 }
+                    { 1, new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(1303), null, true, 1, 1, 2, null, 1 },
+                    { 2, new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(1307), null, true, 2, 2, 1, null, 1 }
                 });
 
             migrationBuilder.CreateIndex(

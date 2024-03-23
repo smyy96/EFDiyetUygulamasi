@@ -14,8 +14,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
         public void Configure(EntityTypeBuilder<NutritionValue> builder)
         {
             builder.HasData(
-                    new NutritionValue { Id = 1, NutritionValueName = "Karbonhidrat" },
-                    new NutritionValue { Id = 2, NutritionValueName = "Protein" }
+                    new NutritionValue { Id = 1, NutritionValueName = "Karbonhidrat",CreatedDate = DateTime.Now },
+                    new NutritionValue { Id = 2, NutritionValueName = "Protein"  , CreatedDate = DateTime.Now }
                 );
         }
     }

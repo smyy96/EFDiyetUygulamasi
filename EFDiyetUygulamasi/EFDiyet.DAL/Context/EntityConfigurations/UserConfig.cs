@@ -52,7 +52,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         UserType = UserType.User,
                         SecurityQuestion = "Favori sayın kaçtır?",
                         Answer = "5",
-                        UserDetailId = 1
+                        UserDetailId = 1,
+                        CreatedDate = DateTime.Now
                     },
                     new User
                     {
@@ -64,7 +65,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         UserType = UserType.Admin,
                         SecurityQuestion = "Favori sayın kaçtır?",
                         Answer = "1",
-                        UserDetailId = 2
+                        UserDetailId = 2,
+                        CreatedDate= DateTime.Now
                     });
         }
     }

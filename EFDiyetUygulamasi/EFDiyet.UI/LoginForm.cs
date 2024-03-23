@@ -19,7 +19,6 @@ namespace efdiyet
         public LoginForm()
         {
             InitializeComponent();
-
         }
 
         List<UserModel> userlist;
@@ -67,10 +66,10 @@ namespace efdiyet
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RoundTextBox(txtEmail, 30);
-            RoundTextBox(txtSifre, 30);
-            RoundButton(btnGirisYap, 30);
-            RoundButton(btnKayitOl, 30);
+            RoundTextBox(txtEmail, 15);
+            RoundTextBox(txtSifre, 15);
+            RoundButton(btnGirisYap, 15);
+            RoundButton(btnKayitOl, 15);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

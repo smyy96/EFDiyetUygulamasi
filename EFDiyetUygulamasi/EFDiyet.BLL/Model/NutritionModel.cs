@@ -9,7 +9,7 @@ namespace EFDiyet.BLL.Model
 {
     public class NutritionModel
     {
-        public int NutritionId { get; set; }
+        public int Id { get; set; }
 
         public string NutritionName { get; set; }
        
@@ -27,5 +27,7 @@ namespace EFDiyet.BLL.Model
         public Portion Portion{ get; set; }        
         
         public float PortionSize { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

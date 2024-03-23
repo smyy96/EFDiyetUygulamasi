@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFDiyet.DAL.Migrations
 {
     [DbContext(typeof(DietDbContext))]
-    [Migration("20240322005051_password")]
-    partial class password
+    [Migration("20240323100119_dbDietOlusturma")]
+    partial class dbDietOlusturma
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,49 +59,49 @@ namespace EFDiyet.DAL.Migrations
                         {
                             Id = 1,
                             CategoryName = "Meyve",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6351),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2062),
                             IsActive = true
                         },
                         new
                         {
                             Id = 2,
                             CategoryName = "Sebze",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6365),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2073),
                             IsActive = true
                         },
                         new
                         {
                             Id = 3,
                             CategoryName = "Et Ürünleri",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6367),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2075),
                             IsActive = true
                         },
                         new
                         {
                             Id = 4,
                             CategoryName = "Salata",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6370),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2076),
                             IsActive = true
                         },
                         new
                         {
                             Id = 5,
                             CategoryName = "Unlu Mamuller",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6372),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2078),
                             IsActive = true
                         },
                         new
                         {
                             Id = 6,
                             CategoryName = "Tatlı",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6374),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2079),
                             IsActive = true
                         },
                         new
                         {
                             Id = 7,
                             CategoryName = "İçecek",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 126, DateTimeKind.Local).AddTicks(6376),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(2081),
                             IsActive = true
                         });
                 });
@@ -139,21 +139,21 @@ namespace EFDiyet.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 127, DateTimeKind.Local).AddTicks(4385),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7142),
                             IsActive = true,
                             MealName = "Kahvaltı"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 127, DateTimeKind.Local).AddTicks(4403),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7148),
                             IsActive = true,
                             MealName = "Öğle Yemeği"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 127, DateTimeKind.Local).AddTicks(4406),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 826, DateTimeKind.Local).AddTicks(7150),
                             IsActive = true,
                             MealName = "Akşam Yemeği"
                         });
@@ -179,8 +179,8 @@ namespace EFDiyet.DAL.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -216,7 +216,7 @@ namespace EFDiyet.DAL.Migrations
                             Id = 1,
                             Calories = 52f,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 128, DateTimeKind.Local).AddTicks(5036),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(2136),
                             IsActive = true,
                             NutritionName = "Elma",
                             NutritionValueId = 1,
@@ -228,7 +228,7 @@ namespace EFDiyet.DAL.Migrations
                             Id = 2,
                             Calories = 18f,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 128, DateTimeKind.Local).AddTicks(5051),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(2143),
                             IsActive = true,
                             NutritionName = "Domates",
                             NutritionValueId = 2,
@@ -269,14 +269,14 @@ namespace EFDiyet.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 128, DateTimeKind.Local).AddTicks(8238),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(3589),
                             IsActive = true,
                             NutritionValueName = "Karbonhidrat"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 128, DateTimeKind.Local).AddTicks(8248),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(3594),
                             IsActive = true,
                             NutritionValueName = "Protein"
                         });
@@ -353,7 +353,7 @@ namespace EFDiyet.DAL.Migrations
                         {
                             Id = 1,
                             Answer = "5",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(899),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(8657),
                             Email = "ish@gmail.com.com",
                             IsActive = true,
                             Name = "ılgısü",
@@ -367,7 +367,7 @@ namespace EFDiyet.DAL.Migrations
                         {
                             Id = 2,
                             Answer = "1",
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(917),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 827, DateTimeKind.Local).AddTicks(8666),
                             Email = "admin@gmail.com",
                             IsActive = true,
                             Name = "Hivda Ilgın",
@@ -420,7 +420,7 @@ namespace EFDiyet.DAL.Migrations
                         {
                             Id = 1,
                             BirthDate = new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(4318),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(106),
                             Gender = 1,
                             Height = 175.5f,
                             IsActive = true,
@@ -430,7 +430,7 @@ namespace EFDiyet.DAL.Migrations
                         {
                             Id = 2,
                             BirthDate = new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(4340),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(110),
                             Gender = 1,
                             Height = 175.5f,
                             IsActive = true,
@@ -484,7 +484,7 @@ namespace EFDiyet.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(6650),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(1303),
                             IsActive = true,
                             MealId = 1,
                             NutritionId = 1,
@@ -494,7 +494,7 @@ namespace EFDiyet.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 22, 3, 50, 39, 130, DateTimeKind.Local).AddTicks(6661),
+                            CreatedDate = new DateTime(2024, 3, 23, 13, 1, 18, 828, DateTimeKind.Local).AddTicks(1307),
                             IsActive = true,
                             MealId = 2,
                             NutritionId = 2,
