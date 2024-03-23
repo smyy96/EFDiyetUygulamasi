@@ -19,6 +19,8 @@ namespace EFDiyet.UI
         public BesinEkleAdmin()
         {
             InitializeComponent();
+
+            labelClear();
             dataGridViewRefresh();
 
             comboBoxEnumAdded();
@@ -29,7 +31,7 @@ namespace EFDiyet.UI
 
         NutritionValueModel nutritionValueSelected;
         byte[] imageData;
-        int deletedID;
+        int selectedEntity;
 
         private void comboBoxNutriValAdded()
         {
@@ -209,11 +211,11 @@ namespace EFDiyet.UI
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //silme
         {
             NutritionManager nutritionManager = new NutritionManager();
 
-            if (deletedID == null && deletedID < 0)
+            if (selectedEntity == null && selectedEntity < 0)
             {
                 Console.WriteLine("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.");
             }
@@ -223,7 +225,7 @@ namespace EFDiyet.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    var entity = nutritionManager.GetById(deletedID);
+                    var entity = nutritionManager.GetById(selectedEntity);
                     entity.Image = null;
                     nutritionManager.Delete(entity);
                     MessageBox.Show("Başarıyla veri silindi.");
@@ -231,14 +233,14 @@ namespace EFDiyet.UI
                     FormClear();
                 }
             }
-            deletedID = 0;
+            selectedEntity = 0;
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             //var selectedNutriValue = (dataGridView1.SelectedRows[0]).DataBoundItem;
             int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
-            deletedID = (int)(dataGridView1.Rows[rowIndex].Cells[0].Value);
+            selectedEntity = (int)(dataGridView1.Rows[rowIndex].Cells[0].Value);
 
             textBox1.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
@@ -311,6 +313,41 @@ namespace EFDiyet.UI
         private void button4_Click(object sender, EventArgs e)
         {
             FormClear();
+            labelClear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (FormControl())
+            {
+                if (selectedEntity == null && selectedEntity < 0)
+                {
+                    Console.WriteLine("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.");
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Güncellemek istediğinize emin misiniz?", "Güncelleniyor..", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        NutritionManager nutritionManager = new NutritionManager();
+                        var entity = nutritionManager.GetById(selectedEntity);
+                        entity.NutritionName = textBox1.Text;
+                        entity.Calories = float.Parse(textBox2.Text);
+                        entity.PortionSize = float.Parse(textBox3.Text);
+                        entity.Portion = (Portion)comboBox1.SelectedValue;
+                        entity.CategoryId = (int)(comboBox2.SelectedValue);
+                        entity.NutritionValueId = (int)(comboBox3.SelectedValue);
+                        entity.Image = imageData;
+
+                        nutritionManager.Modified(entity);
+                        MessageBox.Show("Başarıyla veri güncellendi.");
+                        dataGridViewRefresh();
+                        FormClear();
+                    }
+                }
+            }
+            selectedEntity = 0;
         }
     }
 }
