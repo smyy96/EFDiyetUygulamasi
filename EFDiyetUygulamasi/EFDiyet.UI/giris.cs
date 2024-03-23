@@ -44,8 +44,6 @@ namespace EFDiyet.UI
                 string password = sha256_hash(textBox2.Text);
 
 
-
-
                 if (string.IsNullOrWhiteSpace(password))
                 {
                     MessageBox.Show("Parola boş olamaz!", "Giriş Hatası ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -57,7 +55,7 @@ namespace EFDiyet.UI
                     List<UserModel> userList = userManager.GetAll().ToList();
 
 
-                    var foundUser = userList.FirstOrDefault(u => u.Email == textBox1.Text && u.Password == password);
+                    var foundUser = userList.FirstOrDefault(u => u.Email == textBox1.Text && (u.Password == password || u.Password == textBox2.Text)); //sonradan textbox2 kaldırılacak
 
                     if (foundUser == null)
                     {
@@ -75,7 +73,9 @@ namespace EFDiyet.UI
 
                         else
                         {
-                            //admin sayfası acılacak
+                            adminpaneli adminpaneli = new adminpaneli();
+                            adminpaneli.Show();
+                            this.Hide();
                         }
                     }
                 }

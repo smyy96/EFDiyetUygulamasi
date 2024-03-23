@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace EFDiyet.BLL.Manager.Concrete
 {
-    public class NutritionManager : Manager<NutritionModel, Nutrition, NutritionRepository,NutritionMapProfile>
+    public class NutritionManager : Manager<NutritionModel, Nutrition, NutritionRepository, NutritionMapProfile>
     {
 
         public NutritionManager()
@@ -29,5 +29,10 @@ namespace EFDiyet.BLL.Manager.Concrete
             _repository = new NutritionRepository();
         }
 
+
+        public List<Nutrition> GetNutritionDetails()
+        {
+            return _repository.GetNutritionDetails();
+        }
     }
 }
