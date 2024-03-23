@@ -1,5 +1,6 @@
 ﻿using EFDiyet.BLL.Manager.Concrete;
 using EFDiyet.BLL.Model;
+using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Context.Enums;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace EFDiyet.UI
 
         }
 
+        NutritionValueModel nutritionValueSelected;
         byte[] imageData;
+        int deletedID;
 
         private void comboBoxNutriValAdded()
         {
@@ -116,7 +119,7 @@ namespace EFDiyet.UI
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             pictureBox1.Image = null;
-            dataGridViewRefresh();
+            //dataGridViewRefresh();
         }
 
         private bool FormControl()
@@ -200,10 +203,114 @@ namespace EFDiyet.UI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Resim yükleme hatası: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Resim yükleme hatası: " + ex.ToString(), "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NutritionManager nutritionManager = new NutritionManager();
+
+            if (deletedID == null && deletedID < 0)
+            {
+                Console.WriteLine("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Silmek istediğinize emin misiniz?", "Siliniyor..", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    var entity = nutritionManager.GetById(deletedID);
+                    entity.Image = null;
+                    nutritionManager.Delete(entity);
+                    MessageBox.Show("Başarıyla veri silindi.");
+                    dataGridViewRefresh();
+                    FormClear();
+                }
+            }
+            deletedID = 0;
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            //var selectedNutriValue = (dataGridView1.SelectedRows[0]).DataBoundItem;
+            int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            deletedID = (int)(dataGridView1.Rows[rowIndex].Cells[0].Value);
+
+            textBox1.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+            textBox3.Text = dataGridView1.Rows[rowIndex].Cells[6].Value.ToString();
+
+            comboBox1.SelectedValue = dataGridView1.Rows[rowIndex].Cells[5].Value;
+
+            int idcategory = (int)dataGridView1.Rows[rowIndex].Cells["Id"].Value;
+            int idnitV = (int)dataGridView1.Rows[rowIndex].Cells["Id"].Value;
+            SelectItemInComboBox(idnitV, comboBox3);
+            SelectItemInComboBox(idcategory, comboBox2);
+
+
+            byte[] imageData = null;
+            object cellValue = dataGridView1.Rows[rowIndex].Cells[7].Value;
+
+            if (cellValue != null && cellValue is byte[])
+            {
+                imageData = (byte[])cellValue;
+            }
+            if (cellValue == null)
+                pictureBox1.Image = null;
+
+            //if (imageData != null)
+            //{
+            //    using (MemoryStream ms = new MemoryStream(imageData))
+            //    {
+            //        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            //        pictureBox1.Image = Image.FromStream(ms);
+            //    }
+            //}
+
+            if (imageData != null && imageData.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    try
+                    {
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox1.Image = Image.FromStream(ms);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine("Resim yükleme hatası: " + ex.ToString());
+                        pictureBox1.Image = null; // Resim yüklenemedi, pictureBox1'i temizle
+                    }
+                }
+            }
+            else
+            {
+                pictureBox1.Image = null; // Boş resim verisi, pictureBox1'i temizle
+            }
+        }
+
+
+        private void SelectItemInComboBox(int Id, ComboBox comboBox)
+        {
+            foreach (var item in comboBox.Items)
+            {
+                dynamic dataItem = item;
+                if (dataItem.Id == Id)
+                {
+                    comboBox.SelectedItem = item;
+                    return;
+                }
+            }
+            comboBox.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormClear();
         }
     }
 }

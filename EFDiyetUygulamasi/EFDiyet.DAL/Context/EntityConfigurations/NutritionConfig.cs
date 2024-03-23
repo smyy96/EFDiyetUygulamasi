@@ -20,6 +20,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
             // Nutrition anahtarını belirleme
             builder.HasKey(n => n.Id);
 
+            builder.Property(u => u.Image)
+              .HasColumnType("varbinary(max)");
 
             // NutritionName alanı için gereksinimler
             builder.Property(n => n.NutritionName)
@@ -41,8 +43,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
             //Düzenlenecek enumlar türkçeleşince
             builder.HasData(
-                    new Nutrition { Id = 1, NutritionName = "Elma", Calories = 52, CategoryId = 1, NutritionValueId = 1, Portion = Portion.Adet, PortionSize = 1 },
-                    new Nutrition { Id = 2, NutritionName = "Domates", Calories = 18, CategoryId = 2, NutritionValueId = 2, Portion = Portion.Adet, PortionSize = 1 }
+                    new Nutrition { Id = 1, NutritionName = "Elma", Calories = 52, CategoryId = 1, NutritionValueId = 1, Portion = Portion.Adet, PortionSize = 1, CreatedDate = DateTime.Now },
+                    new Nutrition { Id = 2, NutritionName = "Domates", Calories = 18, CategoryId = 2, NutritionValueId = 2, Portion = Portion.Adet, PortionSize = 1 ,CreatedDate = DateTime.Now }
                     );
         }
     }

@@ -24,6 +24,7 @@ namespace EFDiyet.DAL.Repository.Concrete
             var nutritionDetails = _dbSet
                 .Include(n => n.Category)
                 .Include(n => n.NutritionValue)
+                .Where(x => x.IsActive == true)
                 .ToList();
             return nutritionDetails;
         }

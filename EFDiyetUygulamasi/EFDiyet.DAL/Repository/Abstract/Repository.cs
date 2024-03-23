@@ -1,4 +1,5 @@
 ﻿using EFDiyet.DAL.Context.Entities.Abstract;
+using EFDiyet.DAL.Context.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ using System.Xml.Schema;
 
 namespace EFDiyet.DAL.Repository.Abstract
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase , new()
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityBase, new()
     {
         protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
 
         public Repository()
-        {                
+        {
         }
 
         public Repository(DbContext dbContext)
@@ -41,6 +42,7 @@ namespace EFDiyet.DAL.Repository.Abstract
         {
             entity.UpdatedDate = DateTime.Now;
             entity.CreatedDate = GetById(entity.Id).CreatedDate;
+            
 
             _dbSet.Update(entity);
             _dbContext.SaveChanges();
@@ -50,15 +52,13 @@ namespace EFDiyet.DAL.Repository.Abstract
         public void Delete(TEntity entity)//Soft Delete
         {
             entity.DeletedDate = DateTime.Now;
-            entity.IsActive = false;    
-
-            //_dbContext.Entry(entity).State = EntityState.Detached;
+            entity.IsActive = false;            
+                        
             Update(entity);
-            //_dbContext.SaveChanges();   
         }
 
         public void Remove(TEntity entity) //Hard Delete
-        {         
+        {
             _dbSet.Remove(entity);
             _dbContext.SaveChanges();
         }
@@ -70,7 +70,8 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         public TEntity? GetById(int id)
         {
-            return _dbSet.AsNoTracking().FirstOrDefault(x => x.Id == id && x.IsActive == true);
+            var entity = _dbSet.AsNoTracking().FirstOrDefault(x => x.Id == id && x.IsActive == true);
+            return entity;
         }
 
         public IQueryable<TEntity> GetAllWithIncludes()

@@ -53,9 +53,9 @@ namespace efdiyet
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(250, 23);
+            txtEmail.PlaceholderText = "  E-Mail";
+            txtEmail.Size = new Size(250, 20);
             txtEmail.TabIndex = 16;
-            txtEmail.Text = "  E-Mail";
             // 
             // txtSifre
             // 
@@ -64,13 +64,14 @@ namespace efdiyet
             txtSifre.Cursor = Cursors.IBeam;
             txtSifre.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtSifre.ForeColor = Color.DimGray;
-            txtSifre.Location = new Point(84, 206);
+            txtSifre.Location = new Point(84, 203);
             txtSifre.Margin = new Padding(3, 4, 3, 4);
             txtSifre.Multiline = true;
             txtSifre.Name = "txtSifre";
-            txtSifre.Size = new Size(250, 23);
+            txtSifre.PasswordChar = '*';
+            txtSifre.PlaceholderText = "  Şifre";
+            txtSifre.Size = new Size(250, 20);
             txtSifre.TabIndex = 16;
-            txtSifre.Text = "  Şifre";
             // 
             // cmbSifreGoster
             // 
@@ -90,9 +91,9 @@ namespace efdiyet
             // 
             btnGirisYap.BackColor = Color.LightGray;
             btnGirisYap.ForeColor = Color.FromArgb(64, 0, 0);
-            btnGirisYap.Location = new Point(84, 276);
+            btnGirisYap.Location = new Point(84, 273);
             btnGirisYap.Name = "btnGirisYap";
-            btnGirisYap.Size = new Size(250, 23);
+            btnGirisYap.Size = new Size(250, 26);
             btnGirisYap.TabIndex = 3;
             btnGirisYap.Text = "Giriş Yap";
             btnGirisYap.UseVisualStyleBackColor = false;
@@ -102,9 +103,9 @@ namespace efdiyet
             // 
             btnKayitOl.BackColor = Color.LightGray;
             btnKayitOl.ForeColor = Color.FromArgb(64, 0, 0);
-            btnKayitOl.Location = new Point(84, 351);
+            btnKayitOl.Location = new Point(84, 342);
             btnKayitOl.Name = "btnKayitOl";
-            btnKayitOl.Size = new Size(250, 23);
+            btnKayitOl.Size = new Size(250, 25);
             btnKayitOl.TabIndex = 4;
             btnKayitOl.Text = "Kayıt Ol";
             btnKayitOl.UseVisualStyleBackColor = false;

@@ -29,13 +29,13 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
 
             builder.HasData(
-                   new Category { Id = 1, CategoryName = "Meyve" },
-                   new Category { Id = 2, CategoryName = "Sebze" },
-                   new Category { Id = 3, CategoryName = "Et Ürünleri" },
-                   new Category { Id = 4, CategoryName = "Salata" },
-                   new Category { Id = 5, CategoryName = "Unlu Mamuller" },
-                   new Category { Id = 6, CategoryName = "Tatlı" },
-                   new Category { Id = 7, CategoryName = "İçecek" }
+                   new Category { Id = 1, CategoryName = "Meyve" ,CreatedDate=DateTime.Now},
+                   new Category { Id = 2, CategoryName = "Sebze" , CreatedDate = DateTime.Now },
+                   new Category { Id = 3, CategoryName = "Et Ürünleri" , CreatedDate = DateTime.Now },
+                   new Category { Id = 4, CategoryName = "Salata" , CreatedDate = DateTime.Now },
+                   new Category { Id = 5, CategoryName = "Unlu Mamuller" , CreatedDate = DateTime.Now },
+                   new Category { Id = 6, CategoryName = "Tatlı", CreatedDate = DateTime.Now },
+                   new Category { Id = 7, CategoryName = "İçecek", CreatedDate = DateTime.Now }
 
                 );
 

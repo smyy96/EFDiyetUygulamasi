@@ -21,7 +21,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Gender = Gender.Kadın,
                         BirthDate = new DateTime(2003, 5, 15),
                         Height = 175.5f,
-                        Weight = 50.0f
+                        Weight = 50.0f,
+                        CreatedDate = DateTime.Now
                     },
                     new UserDetail
                     {
@@ -29,7 +30,9 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Gender = Gender.Kadın,
                         BirthDate = new DateTime(2003, 5, 15),
                         Height = 175.5f,
-                        Weight = 50.0f
+                        Weight = 50.0f,
+                        CreatedDate = DateTime.Now
+
                     });
         }
     }
