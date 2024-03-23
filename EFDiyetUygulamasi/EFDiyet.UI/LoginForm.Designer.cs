@@ -90,6 +90,8 @@ namespace efdiyet
             // btnGirisYap
             // 
             btnGirisYap.BackColor = Color.LightGray;
+            btnGirisYap.FlatAppearance.BorderSize = 0;
+            btnGirisYap.FlatStyle = FlatStyle.Flat;
             btnGirisYap.ForeColor = Color.FromArgb(64, 0, 0);
             btnGirisYap.Location = new Point(84, 273);
             btnGirisYap.Name = "btnGirisYap";
@@ -102,6 +104,8 @@ namespace efdiyet
             // btnKayitOl
             // 
             btnKayitOl.BackColor = Color.LightGray;
+            btnKayitOl.FlatAppearance.BorderSize = 0;
+            btnKayitOl.FlatStyle = FlatStyle.Flat;
             btnKayitOl.ForeColor = Color.FromArgb(64, 0, 0);
             btnKayitOl.Location = new Point(84, 342);
             btnKayitOl.Name = "btnKayitOl";
