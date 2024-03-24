@@ -65,6 +65,7 @@
             lblAnalizA.Size = new Size(56, 23);
             lblAnalizA.TabIndex = 23;
             lblAnalizA.Text = "Analiz";
+            lblAnalizA.Click += lblAnalizA_Click;
             // 
             // lblEkDegisimler
             // 
@@ -100,6 +101,7 @@
             pbAnaliz.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAnaliz.TabIndex = 20;
             pbAnaliz.TabStop = false;
+            pbAnaliz.Click += pbAnaliz_Click;
             // 
             // pbOgunEkle
             // 

@@ -92,6 +92,7 @@ namespace EFDiyet.DAL.Repository.Abstract
             return entity;
         }
 
+
         public IQueryable<TEntity> GetAllWithIncludes()
         {
 

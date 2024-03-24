@@ -14,5 +14,11 @@ namespace EFDiyet.BLL.Manager.Concrete
 {
     public class UserManager : Manager<UserModel, User, UserRepository, NutritionMapProfile>
     {
+        public UserModel? GetByEmail(string email)
+        {
+            User entity = _repository.GetByEmail(email);
+            UserModel model = _mapper.Map<UserModel>(entity);
+            return model;
+        }
     }
 }

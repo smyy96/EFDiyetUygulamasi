@@ -59,5 +59,17 @@ namespace EFDiyet.UI
             AdminAddNutrition adminAddNutrition = new AdminAddNutrition();
             ShowPanelControl(adminAddNutrition);
         }
+
+        private void lblAnalizA_Click(object sender, EventArgs e)
+        {
+            AdminAnalysisPage analysisPage = new AdminAnalysisPage();
+            ShowPanelControl(analysisPage);
+        }
+
+        private void pbAnaliz_Click(object sender, EventArgs e)
+        {
+            AdminAnalysisPage analysisPage = new AdminAnalysisPage();
+            ShowPanelControl(analysisPage);
+        }
     }
 }
