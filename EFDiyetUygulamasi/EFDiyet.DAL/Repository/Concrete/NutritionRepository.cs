@@ -19,8 +19,7 @@ namespace EFDiyet.DAL.Repository.Concrete
         }
 
         public List<Nutrition> GetNutritionDetails()
-        {
-            ;
+        {            
             var nutritionDetails = _dbSet
                 .Include(n => n.Category)
                 .Include(n => n.NutritionValue)
