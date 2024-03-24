@@ -30,8 +30,9 @@ namespace EFDiyet.UI
         }
 
         NutritionValueModel nutritionValueSelected;
-        byte[] imageData;
-        int selectedEntity;
+        byte[] imageData = null;
+        int selectedEntityId;
+        object cellValue;
 
         private void comboBoxNutriValAdded()
         {
@@ -77,7 +78,7 @@ namespace EFDiyet.UI
                    Nutrion_Name = n.NutritionName,
                    Kalorisi = n.Calories,
                    Kategori_Adı = n.Category.CategoryName,
-                   Besin_Değeri = n.NutritionValue.NutritionValueName,
+                   Besin_Degeri = n.NutritionValue.NutritionValueName,
                    Porsiyon = n.Portion,
                    PorsiyonMiktari = n.PortionSize,
                    Resim = n.Image
@@ -90,7 +91,7 @@ namespace EFDiyet.UI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Ekle
         {
             if (FormControl())
             {
@@ -103,11 +104,15 @@ namespace EFDiyet.UI
                 model.Portion = (Portion)comboBox1.SelectedValue;
                 model.CategoryId = (int)(comboBox2.SelectedValue);
                 model.NutritionValueId = (int)(comboBox3.SelectedValue);
-                model.Image = imageData;
+                //if (imageData != null && ((byte[])imageData).Length != 0)
+                model.Image = (byte[])imageData;
 
                 nutritionManager.Insert(model);
                 MessageBox.Show("Kaydınız Başarıyla Oluşturulmuştur.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FormClear();
+                dataGridViewRefresh();
+
+                imageData = null;
 
             }
         }
@@ -121,6 +126,7 @@ namespace EFDiyet.UI
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             pictureBox1.Image = null;
+            imageData = null;
             //dataGridViewRefresh();
         }
 
@@ -211,11 +217,12 @@ namespace EFDiyet.UI
             }
         }
 
+
         private void button2_Click(object sender, EventArgs e) //silme
         {
             NutritionManager nutritionManager = new NutritionManager();
 
-            if (selectedEntity == null && selectedEntity < 0)
+            if (selectedEntityId == null && selectedEntityId < 0)
             {
                 Console.WriteLine("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.");
             }
@@ -225,7 +232,7 @@ namespace EFDiyet.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    var entity = nutritionManager.GetById(selectedEntity);
+                    var entity = nutritionManager.GetById(selectedEntityId);
                     entity.Image = null;
                     nutritionManager.Delete(entity);
                     MessageBox.Show("Başarıyla veri silindi.");
@@ -233,14 +240,16 @@ namespace EFDiyet.UI
                     FormClear();
                 }
             }
-            selectedEntity = 0;
+            selectedEntityId = 0;
         }
+
+
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             //var selectedNutriValue = (dataGridView1.SelectedRows[0]).DataBoundItem;
             int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
-            selectedEntity = (int)(dataGridView1.Rows[rowIndex].Cells[0].Value);
+            selectedEntityId = (int)(dataGridView1.Rows[rowIndex].Cells[0].Value);
 
             textBox1.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
@@ -248,14 +257,19 @@ namespace EFDiyet.UI
 
             comboBox1.SelectedValue = dataGridView1.Rows[rowIndex].Cells[5].Value;
 
-            int idcategory = (int)dataGridView1.Rows[rowIndex].Cells["Id"].Value;
-            int idnitV = (int)dataGridView1.Rows[rowIndex].Cells["Id"].Value;
-            SelectItemInComboBox(idnitV, comboBox3);
-            SelectItemInComboBox(idcategory, comboBox2);
+            string categoryName = dataGridView1.Rows[rowIndex].Cells["Kategori_Adı"].Value.ToString();
+            string nutriValu = dataGridView1.Rows[rowIndex].Cells["Besin_Degeri"].Value.ToString();
+            SelectItemInComboBoxByCategoryName(categoryName, comboBox2);
+            SelectItemInComboBoxByNutriValue(nutriValu, comboBox3);
 
 
-            byte[] imageData = null;
-            object cellValue = dataGridView1.Rows[rowIndex].Cells[7].Value;
+
+            //byte[] imageData = null;
+            //object cellValue = dataGridView1.Rows[rowIndex].Cells[7].Value;
+
+            NutritionManager nutritionManager = new NutritionManager();
+
+            object cellValue = nutritionManager.GetById(selectedEntityId).Image;
 
             if (cellValue != null && cellValue is byte[])
             {
@@ -263,15 +277,6 @@ namespace EFDiyet.UI
             }
             if (cellValue == null)
                 pictureBox1.Image = null;
-
-            //if (imageData != null)
-            //{
-            //    using (MemoryStream ms = new MemoryStream(imageData))
-            //    {
-            //        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            //        pictureBox1.Image = Image.FromStream(ms);
-            //    }
-            //}
 
             if (imageData != null && imageData.Length > 0)
             {
@@ -284,24 +289,24 @@ namespace EFDiyet.UI
                     }
                     catch (ArgumentException ex)
                     {
-                        Console.WriteLine("Resim yükleme hatası: " + ex.ToString());
-                        pictureBox1.Image = null; // Resim yüklenemedi, pictureBox1'i temizle
+                        Console.WriteLine("Resim yüklenme hatası: " + ex.ToString());
+                        pictureBox1.Image = null;
                     }
                 }
             }
             else
             {
-                pictureBox1.Image = null; // Boş resim verisi, pictureBox1'i temizle
+                pictureBox1.Image = null;
             }
         }
 
 
-        private void SelectItemInComboBox(int Id, ComboBox comboBox)
+        private void SelectItemInComboBoxByCategoryName(string categoryName, ComboBox comboBox) //datagridden secilen kategori adını comboxa da secili duruma getirme
         {
             foreach (var item in comboBox.Items)
             {
                 dynamic dataItem = item;
-                if (dataItem.Id == Id)
+                if (dataItem.CategoryName == categoryName)
                 {
                     comboBox.SelectedItem = item;
                     return;
@@ -309,6 +314,22 @@ namespace EFDiyet.UI
             }
             comboBox.Refresh();
         }
+
+        private void SelectItemInComboBoxByNutriValue(string nutriValue, ComboBox comboBox) //besin degerini secili hale getirme
+        {
+            foreach (var item in comboBox.Items)
+            {
+                dynamic dataItem = item;
+                if (dataItem.NutritionValueName == nutriValue)
+                {
+                    comboBox.SelectedItem = item;
+                    return;
+                }
+            }
+            comboBox.Refresh();
+        }
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -320,7 +341,7 @@ namespace EFDiyet.UI
         {
             if (FormControl())
             {
-                if (selectedEntity == null && selectedEntity < 0)
+                if (selectedEntityId == null && selectedEntityId < 0)
                 {
                     Console.WriteLine("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.");
                 }
@@ -331,14 +352,14 @@ namespace EFDiyet.UI
                     if (result == DialogResult.Yes)
                     {
                         NutritionManager nutritionManager = new NutritionManager();
-                        var entity = nutritionManager.GetById(selectedEntity);
+                        var entity = nutritionManager.GetById(selectedEntityId);
                         entity.NutritionName = textBox1.Text;
                         entity.Calories = float.Parse(textBox2.Text);
                         entity.PortionSize = float.Parse(textBox3.Text);
                         entity.Portion = (Portion)comboBox1.SelectedValue;
                         entity.CategoryId = (int)(comboBox2.SelectedValue);
                         entity.NutritionValueId = (int)(comboBox3.SelectedValue);
-                        entity.Image = imageData;
+                        entity.Image = (byte[])imageData;
 
                         nutritionManager.Modified(entity);
                         MessageBox.Show("Başarıyla veri güncellendi.");
@@ -347,7 +368,8 @@ namespace EFDiyet.UI
                     }
                 }
             }
-            selectedEntity = 0;
+            selectedEntityId = 0;
+            imageData = null;
         }
     }
 }
