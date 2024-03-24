@@ -15,6 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Cryptography;
 
+
 namespace EFDiyet.UI
 {
     public partial class UserRegister : Form
@@ -211,16 +212,21 @@ namespace EFDiyet.UI
 
         private void labelClear()
         {
-            foreach (Control control in Controls)
+            foreach (Control control in panel2.Controls)
             {
                 if (control is Label label)
                 {
-                    if (label.Name.StartsWith("label") && int.TryParse(label.Name.Substring(5), out int number) && number >= 1 && number <= 8)
+                    if (label.Name.StartsWith("label") && int.TryParse(label.Name.Substring(5), out int number) && number >= 1 && number <= 5)
                     {
                         label.Text = "";
                     }
                 }
             }
+
+            label6.Text = "";
+            label7.Text = "";
+            label8.Text = "";
+            
         }
 
 
