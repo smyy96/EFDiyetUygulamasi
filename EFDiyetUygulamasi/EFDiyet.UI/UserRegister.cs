@@ -75,7 +75,7 @@ namespace EFDiyet.UI
             UserDetailManager userDetail = new UserDetailManager();
             UserModel model = new UserModel();
 
-            model.Name = txt_Kilo.Text;
+            model.Name = txt_Ad.Text;
             model.Surname = txt_Soyad.Text;
             model.Email = txt_Mail.Text;
             model.Password = sha256_hash(txt_Parola.Text);

@@ -85,7 +85,7 @@ namespace EFDiyet.UI
             cmbSifreGoster.Text = "Şifreyi Göster";
             cmbSifreGoster.TextAlign = ContentAlignment.MiddleRight;
             cmbSifreGoster.UseVisualStyleBackColor = false;
-            cmbSifreGoster.Click += cmbSifreGoster_Click;
+            cmbSifreGoster.CheckedChanged += cmbSifreGoster_CheckedChanged;
             // 
             // btnGirisYap
             // 
