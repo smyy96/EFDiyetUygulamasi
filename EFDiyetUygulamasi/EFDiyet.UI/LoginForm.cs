@@ -1,16 +1,10 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using EFDiyet.BLL.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using System.Net.Mail;
-using System.Text;
 using EFDiyet.BLL.Manager.Concrete;
+using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Enums;
+using System.Drawing.Drawing2D;
+using System.Net.Mail;
 using System.Security.Cryptography;
-using EFDiyet.UI;
+using System.Text;
 
 namespace EFDiyet.UI
 {
@@ -66,6 +60,7 @@ namespace EFDiyet.UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cmbSifreGoster.Checked = false;
             RoundTextBox(txtEmail, 15);
             RoundTextBox(txtSifre, 15);
             RoundButton(btnGirisYap, 15);
@@ -158,23 +153,24 @@ namespace EFDiyet.UI
             cmbSifreGoster.Checked = false;
         }
 
-        private void cmbSifreGoster_Click(object sender, EventArgs e)
-        {
-            if (cmbSifreGoster.Checked)
-            {
-                txtSifre.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txtSifre.UseSystemPasswordChar = true;
-            }
-        }
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
             UserRegister userRegister = new UserRegister();
             this.Hide();
             userRegister.Show();
+        }
+
+        private void cmbSifreGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cmbSifreGoster.Checked)
+            {
+                txtSifre.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txtSifre.UseSystemPasswordChar = false;
+            }
         }
     }
 }
