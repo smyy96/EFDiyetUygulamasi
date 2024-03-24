@@ -1,5 +1,5 @@
 ﻿
-namespace efdiyet
+namespace EFDiyet.UI
 {
     partial class LoginForm
     {

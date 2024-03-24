@@ -12,7 +12,7 @@ using EFDiyet.DAL.Context.Enums;
 using System.Security.Cryptography;
 using EFDiyet.UI;
 
-namespace efdiyet
+namespace EFDiyet.UI
 {
     public partial class LoginForm : Form
     {
@@ -119,7 +119,7 @@ namespace efdiyet
 
                         else
                         {
-                            adminpaneli adminpaneli = new adminpaneli();
+                            AdminPanel adminpaneli = new AdminPanel();
                             adminpaneli.Show();
                             this.Hide();
                         }
