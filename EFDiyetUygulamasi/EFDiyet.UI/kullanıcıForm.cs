@@ -29,7 +29,7 @@ namespace EFDiyet.UI
 
         private void kullanıcıForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            giris form = Application.OpenForms.OfType<giris>().FirstOrDefault();
+            LoginForm form = Application.OpenForms.OfType<LoginForm>().FirstOrDefault();
             form.FormClear();
             form.Show();
         }
