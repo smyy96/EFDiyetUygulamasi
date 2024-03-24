@@ -33,6 +33,16 @@ namespace EFDiyet.DAL.Repository.Abstract
             entity.CreatedDate = DateTime.Now;
             entity.IsActive = true;
 
+            var imageProperty = typeof(TEntity).GetProperty("Image");
+            if (imageProperty != null)
+            {
+                var imageValue = imageProperty.GetValue(entity);
+                if (imageValue == null || ((byte[])imageValue).Length == 0)
+                {
+                    imageProperty.SetValue(entity, null);
+                }
+            }
+
             _dbSet.Add(entity);
             _dbContext.SaveChanges();
 
@@ -42,8 +52,16 @@ namespace EFDiyet.DAL.Repository.Abstract
         {
             entity.UpdatedDate = DateTime.Now;
             entity.CreatedDate = GetById(entity.Id).CreatedDate;
-            
 
+            var imageProperty = typeof(TEntity).GetProperty("Image");
+            if (imageProperty != null)
+            {
+                var imageValue = imageProperty.GetValue(entity);
+                if (imageValue == null || ((byte[])imageValue).Length == 0)
+                {
+                    imageProperty.SetValue(entity, null);
+                }
+            }
             _dbSet.Update(entity);
             _dbContext.SaveChanges();
 
@@ -95,5 +113,6 @@ namespace EFDiyet.DAL.Repository.Abstract
             return query;
 
         }
+
     }
 }
