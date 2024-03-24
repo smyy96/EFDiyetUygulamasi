@@ -101,25 +101,31 @@ namespace EFDiyet.UI
                 }
                 else
                 {
+                    try
+                    {
+                        NutritionManager nutritionManager = new NutritionManager();
+                        NutritionModel model = new NutritionModel();
 
-                    NutritionManager nutritionManager = new NutritionManager();
-                    NutritionModel model = new NutritionModel();
+                        model.NutritionName = textBox1.Text;
+                        model.Calories = float.Parse(textBox2.Text);
+                        model.PortionSize = float.Parse(textBox3.Text);
+                        model.Portion = (Portion)comboBox1.SelectedValue;
+                        model.CategoryId = (int)(comboBox2.SelectedValue);
+                        model.NutritionValueId = (int)(comboBox3.SelectedValue);
+                        //if (imageData != null && ((byte[])imageData).Length != 0)
+                        model.Image = (byte[])imageData;
 
-                    model.NutritionName = textBox1.Text;
-                    model.Calories = float.Parse(textBox2.Text);
-                    model.PortionSize = float.Parse(textBox3.Text);
-                    model.Portion = (Portion)comboBox1.SelectedValue;
-                    model.CategoryId = (int)(comboBox2.SelectedValue);
-                    model.NutritionValueId = (int)(comboBox3.SelectedValue);
-                    //if (imageData != null && ((byte[])imageData).Length != 0)
-                    model.Image = (byte[])imageData;
+                        nutritionManager.Insert(model);
+                        MessageBox.Show("Kaydınız Başarıyla Oluşturulmuştur.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormClear();
+                        dataGridViewRefresh();
 
-                    nutritionManager.Insert(model);
-                    MessageBox.Show("Kaydınız Başarıyla Oluşturulmuştur.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormClear();
-                    dataGridViewRefresh();
-
-                    imageData = null;
+                        imageData = null;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Kayıt işleminde beklenmeyen bir hata oluştu. \nHata:" + ex.ToString() + "\nEkranı temizleyip tekrar deneyiniz.", "Hata :( ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -249,6 +255,8 @@ namespace EFDiyet.UI
                     dataGridViewRefresh();
                     FormClear();
                 }
+                else
+                    FormClear();
             }
             selectedEntityId = 0;
         }
@@ -374,6 +382,10 @@ namespace EFDiyet.UI
                     nutritionManager.Modified(entity);
                     MessageBox.Show("Başarıyla veri güncellendi.");
                     dataGridViewRefresh();
+                    FormClear();
+                }
+                else
+                {
                     FormClear();
                 }
 
