@@ -65,6 +65,7 @@
             lblAnalizA.Size = new Size(56, 23);
             lblAnalizA.TabIndex = 23;
             lblAnalizA.Text = "Analiz";
+            lblAnalizA.Click += lblAnalizA_Click;
             // 
             // lblEkDegisimler
             // 
@@ -100,6 +101,7 @@
             pbAnaliz.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAnaliz.TabIndex = 20;
             pbAnaliz.TabStop = false;
+            pbAnaliz.Click += pbAnaliz_Click;
             // 
             // pbOgunEkle
             // 
@@ -141,18 +143,18 @@
             // panel1
             // 
             panel1.BackColor = Color.Linen;
-            panel1.Location = new Point(14, 70);
+            panel1.Location = new Point(13, 84);
             panel1.Name = "panel1";
-            panel1.Size = new Size(848, 422);
+            panel1.Size = new Size(848, 431);
             panel1.TabIndex = 25;
             // 
-            // AdminEkDegisimler
+            // AdminPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(873, 501);
+            ClientSize = new Size(873, 527);
             Controls.Add(panel1);
             Controls.Add(lblAdmin);
             Controls.Add(lblAnalizA);
@@ -163,7 +165,7 @@
             Controls.Add(pbBesinEkle);
             Controls.Add(lblDietAppA);
             DoubleBuffered = true;
-            Name = "AdminEkDegisimler";
+            Name = "AdminPanel";
             Text = "Admin Sayfası";
             ((System.ComponentModel.ISupportInitialize)pbAnaliz).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbOgunEkle).EndInit();

@@ -349,6 +349,7 @@
             // 
             // pctBxImage
             // 
+            pctBxImage.BackColor = Color.White;
             pctBxImage.Location = new Point(62, 16);
             pctBxImage.Margin = new Padding(3, 2, 3, 2);
             pctBxImage.Name = "pctBxImage";

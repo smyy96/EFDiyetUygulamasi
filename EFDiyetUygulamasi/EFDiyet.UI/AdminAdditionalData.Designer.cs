@@ -66,7 +66,7 @@
             tcAdmin.Controls.Add(tabpKategoriEkle);
             tcAdmin.Controls.Add(tabpBeDe);
             tcAdmin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            tcAdmin.Location = new Point(37, 26);
+            tcAdmin.Location = new Point(38, 24);
             tcAdmin.Name = "tcAdmin";
             tcAdmin.SelectedIndex = 0;
             tcAdmin.Size = new Size(776, 367);
@@ -366,7 +366,7 @@
             BackColor = Color.Linen;
             Controls.Add(tcAdmin);
             Name = "AdminAdditionalData";
-            Size = new Size(848, 422);
+            Size = new Size(848, 431);
             Load += AdminAdditionalData_Load;
             tcAdmin.ResumeLayout(false);
             tabpOgunEkle.ResumeLayout(false);

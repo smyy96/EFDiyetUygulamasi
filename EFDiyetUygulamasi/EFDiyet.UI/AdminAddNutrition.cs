@@ -243,7 +243,7 @@ namespace EFDiyet.UI
                     entity.PortionSize = float.Parse(txt_BesinPorsiyon.Text);
                     entity.Portion = (Portion)cmbPortion.SelectedValue;
                     entity.CategoryId = (int)(cmbCategory.SelectedValue);
-                    entity.NutritionValueId = (int)(cmbCategory.SelectedValue);
+                    entity.NutritionValueId = (int)(cmbNutriVal.SelectedValue);
                     entity.Image = (byte[])imageData;
 
                     nutritionManager.Modified(entity);

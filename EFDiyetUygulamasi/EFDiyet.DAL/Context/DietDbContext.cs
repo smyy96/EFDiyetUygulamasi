@@ -23,9 +23,8 @@ namespace EFDiyet.DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //Veritabanı baglantısı
         {
-
-            //optionsBuilder.UseSqlServer("Data Source=DESKTOP-5HVC58C\\SQLEXPRESS02;Initial Catalog=DietDB;Integrated Security=True;Encrypt=False");
-            optionsBuilder.UseSqlServer("Data Source=ILGıN;Initial Catalog=DietDB;Integrated Security=True;Encrypt=False");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-5HVC58C\\SQLEXPRESS02;Initial Catalog=DietDB;Integrated Security=True;Encrypt=False");
+            //optionsBuilder.UseSqlServer("Data Source=ILGıN;Initial Catalog=DietDB;Integrated Security=True;Encrypt=False");
             //optionsBuilder.UseSqlServer("Data Source=LAPTOP-DCAA7GQH\\MSSQLSERVERHIVDA;Initial Catalog=DietDB;Integrated Security=True;Encrypt=False");
         }
 
