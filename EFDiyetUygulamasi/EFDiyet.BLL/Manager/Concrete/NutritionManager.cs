@@ -67,6 +67,7 @@ namespace EFDiyet.BLL.Manager.Concrete
                                         MealName = group.FirstOrDefault()?.UserNutrition.FirstOrDefault()?.Meal.MealName,
                                         Count = group.Count().ToString(),
                                         NutritionValue = group.FirstOrDefault()?.NutritionValue.NutritionValueName,
+                                        TotalCalorie = group.Sum(x => x.Calories)
                                     })
                                     .OrderByDescending(item => item.TotalQuantity)
                                     .ToList();
@@ -109,6 +110,8 @@ namespace EFDiyet.BLL.Manager.Concrete
                                         MealName = group.FirstOrDefault()?.UserNutrition.FirstOrDefault()?.Meal.MealName,
                                         Count = group.Count().ToString(),
                                         NutritionValue = group.FirstOrDefault()?.NutritionValue.NutritionValueName,
+                                        TotalCalorie = group.Sum(x => x.Calories)
+
                                     })
                                     .OrderByDescending(item => item.TotalQuantity)
                                     .ToList();
@@ -127,6 +130,7 @@ namespace EFDiyet.BLL.Manager.Concrete
             public string NutritionValue { get; set; }
             public string MealName { get; set; }
             public int TotalQuantity { get; set; }
+            public float TotalCalorie { get; set; }
             public string Count { get; set; }
 
         }
