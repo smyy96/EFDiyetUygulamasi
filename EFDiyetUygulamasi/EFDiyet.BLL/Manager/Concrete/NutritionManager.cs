@@ -34,5 +34,56 @@ namespace EFDiyet.BLL.Manager.Concrete
         {
             return _repository.GetNutritionDetails();
         }
+
+        public List<NutritionCount> GetNutritionMealDetails(int haftalıkAylık)
+        {
+            /*
+             * son bir haftada/ayda tüketilen yiyeceklerin (yiyeceklere göre grouplama ve countunu alma )toplam tüketim miktarı
+             * ve en çok hangi ögünde tüketildiği- kategori ile birlikte yazma.
+             */
+
+            DateTime oneWeekMonthAgo;
+
+
+            if (haftalıkAylık == -7)
+                oneWeekMonthAgo = DateTime.Today.AddDays(-7);
+
+            else
+                oneWeekMonthAgo = DateTime.Today.AddMonths(-1);
+
+
+            var nutritionDetails = _repository.GetNutritionMealDetails()
+                                        .Where(x => x.UserNutrition.Any(un => un.CreatedDate >= oneWeekMonthAgo))
+                                        .ToList();
+
+
+            var groupedNutrition = nutritionDetails
+                                    .GroupBy(n => new { n.NutritionName, n.Category.CategoryName })
+                                    .Select(group => new NutritionCount
+                                    {
+                                        NutritionName = group.Key.NutritionName,
+                                        CategoryName = group.Key.CategoryName,
+                                        TotalQuantity = group.Sum(x => x.UserNutrition.Sum(un => un.Quantity)),
+                                        MealName = group.FirstOrDefault()?.UserNutrition.FirstOrDefault()?.Meal.MealName,
+                                        Count = group.Count().ToString(),
+                                        NutritionValue = group.FirstOrDefault()?.NutritionValue.NutritionValueName,
+                                    })
+                                    .OrderByDescending(item => item.TotalQuantity)
+                                    .ToList();
+
+            return groupedNutrition;
+
+
+        }
+        public class NutritionCount
+        {
+            public string NutritionName { get; set; }
+            public string CategoryName { get; set; }
+            public string NutritionValue { get; set; }
+            public string MealName { get; set; }
+            public int TotalQuantity { get; set; }
+            public string Count { get; set; }
+
+        }
     }
 }

@@ -107,8 +107,8 @@ namespace EFDiyet.UI
                     {
                         if (foundUser.UserType == UserType.User)
                         {
-                            kullanýcýForm kullanýcýForm = new kullanýcýForm(foundUser);
-                            kullanýcýForm.Show();
+                            UserForm userForm = new UserForm(foundUser);
+                            userForm.Show();
                             this.Hide();
                         }
 

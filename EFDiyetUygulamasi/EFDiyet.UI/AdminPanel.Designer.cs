@@ -165,6 +165,7 @@
             Controls.Add(pbBesinEkle);
             Controls.Add(lblDietAppA);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminPanel";
             Text = "Admin Sayfası";
             ((System.ComponentModel.ISupportInitialize)pbAnaliz).EndInit();

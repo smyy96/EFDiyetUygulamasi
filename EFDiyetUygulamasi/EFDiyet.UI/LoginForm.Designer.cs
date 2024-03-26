@@ -180,6 +180,9 @@ namespace EFDiyet.UI
             Controls.Add(txtSifre);
             Controls.Add(txtEmail);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "LoginForm";
             Text = "Giriş Sayfası";
             Load += Form1_Load;

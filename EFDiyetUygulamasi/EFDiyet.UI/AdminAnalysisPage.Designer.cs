@@ -105,6 +105,7 @@
             rbAylik.TabStop = true;
             rbAylik.Text = "Aylık Listele";
             rbAylik.UseVisualStyleBackColor = false;
+            rbAylik.CheckedChanged += rbAylik_CheckedChanged;
             // 
             // lblGenelTuketilen
             // 
@@ -131,6 +132,7 @@
             rbHaftalik.TabStop = true;
             rbHaftalik.Text = "Haftalık Listele";
             rbHaftalik.UseVisualStyleBackColor = false;
+            rbHaftalik.CheckedChanged += rbHaftalik_CheckedChanged;
             // 
             // cmbUsers
             // 

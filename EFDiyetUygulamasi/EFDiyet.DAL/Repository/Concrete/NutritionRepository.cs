@@ -19,10 +19,22 @@ namespace EFDiyet.DAL.Repository.Concrete
         }
 
         public List<Nutrition> GetNutritionDetails()
-        {            
+        {
             var nutritionDetails = _dbSet
                 .Include(n => n.Category)
                 .Include(n => n.NutritionValue)
+                .Where(x => x.IsActive == true)
+                .ToList();
+            return nutritionDetails;
+        }
+
+        public List<Nutrition> GetNutritionMealDetails()
+        {
+            var nutritionDetails = _dbSet
+                .Include(n => n.Category)
+                .Include(n => n.NutritionValue)
+                .Include(n => n.UserNutrition)
+                .ThenInclude(un => un.Meal)
                 .Where(x => x.IsActive == true)
                 .ToList();
             return nutritionDetails;

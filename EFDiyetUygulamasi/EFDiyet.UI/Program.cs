@@ -1,5 +1,4 @@
 
-
 namespace EFDiyet.UI
 {
     internal static class Program
@@ -16,6 +15,7 @@ namespace EFDiyet.UI
             Application.Run(new LoginForm());
             //Application.Run(new BesinEkleAdmin());
             //Application.Run(new AdminPanel());
+            //Application.Run(new UserForm());
         }
     }
 }

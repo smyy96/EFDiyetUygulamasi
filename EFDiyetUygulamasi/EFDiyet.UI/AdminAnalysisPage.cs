@@ -27,6 +27,7 @@ namespace EFDiyet.UI
         {
             dgvOguneGore.DataSource = null;
             dgvKategoriyeGore.DataSource = null;
+            dgvGenelTuketilen.DataSource = null;
         }
 
         private void ComboUserFill()
@@ -104,6 +105,40 @@ namespace EFDiyet.UI
             dgvOguneGore.Columns["MealName"].HeaderText = "Öğün Adı";
             dgvOguneGore.Columns["Count"].HeaderText = "Toplam Adet";
             dgvOguneGore.Columns["TotalQuantity"].HeaderText = "Toplam Besin Miktarı";
+
+        }
+
+
+        private void DataGridHeaderWeekMonth()
+        {
+            dgvGenelTuketilen.Columns["TotalQuantity"].HeaderText = "Toplam Tüketim Miktarı";
+            dgvGenelTuketilen.Columns["Count"].HeaderText = "Toplam Sayı";
+            dgvGenelTuketilen.Columns["NutritionName"].HeaderText = "Besin Adı";
+            dgvGenelTuketilen.Columns["CategoryName"].HeaderText = "Kategori Adı";
+            dgvGenelTuketilen.Columns["MealName"].HeaderText = "Öğün Adı";
+            dgvGenelTuketilen.Columns["NutritionValue"].HeaderText = "Besin Değeri";
+        }
+
+
+
+        private void rbHaftalik_CheckedChanged(object sender, EventArgs e)
+        {
+            /*
+             * son bir haftada tüketilen yiyeceklerin (yiyeceklere göre grouplama ve countunu alma )toplam tüketim miktarı
+             * ve en çok hangi ögünde tüketildiği- kategori ile birlikte yazma.
+             */
+
+            NutritionManager nutritionManager = new NutritionManager();
+            dgvGenelTuketilen.DataSource = nutritionManager.GetNutritionMealDetails(-7);//haftalık oldugu için -7
+            DataGridHeaderWeekMonth();
+
+        }
+
+        private void rbAylik_CheckedChanged(object sender, EventArgs e)
+        {
+            NutritionManager nutritionManager = new NutritionManager();
+            dgvGenelTuketilen.DataSource = nutritionManager.GetNutritionMealDetails(-1); // aylık oldugu için -1
+            DataGridHeaderWeekMonth();
         }
     }
 }
