@@ -45,6 +45,7 @@
             dateTimePicker1 = new DateTimePicker();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             pictureBox1.Size = new Size(109, 106);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // textBox1
             // 
@@ -171,7 +173,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(330, 324);
+            button1.Location = new Point(284, 364);
             button1.Name = "button1";
             button1.Size = new Size(140, 57);
             button1.TabIndex = 18;
@@ -181,19 +183,30 @@
             // 
             // button2
             // 
-            button2.Location = new Point(500, 332);
+            button2.Location = new Point(430, 364);
             button2.Name = "button2";
             button2.Size = new Size(140, 57);
             button2.TabIndex = 19;
-            button2.Text = "kaydet";
+            button2.Text = "kaydet (Silinecek bu buton içi boş)";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(284, 323);
+            button3.Name = "button3";
+            button3.Size = new Size(286, 27);
+            button3.TabIndex = 20;
+            button3.Text = "Değişiklik yapmak için bilgilerini aktif et";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // userprofil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dateTimePicker1);
@@ -238,5 +251,6 @@
         private DateTimePicker dateTimePicker1;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }
