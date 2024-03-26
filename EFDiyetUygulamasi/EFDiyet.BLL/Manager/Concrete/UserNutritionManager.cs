@@ -67,6 +67,44 @@ namespace EFDiyet.BLL.Manager.Concrete
         }
 
 
+        public List<MealSummary> GetNutritionMealByDate(string date) //Tarihe göre kategori analizi
+        {
+            var userNutritionDetails = _repository.GetNutritionNutritionDetails()
+                .Where(e => e.CreatedDate.ToString("dd/MM/yyyy") == date)
+                .GroupBy(c => c.Nutrition.Category.CategoryName)
+                .Select(group => new MealSummary
+                {
+                    MealName = group.Key,
+                    Count = group.Count(),
+                    TotalQuantity = group.Sum(x => x.Quantity)
+                })
+                .OrderByDescending(item => item.Count)
+                .ToList();
+
+            return userNutritionDetails;
+        }
+
+
+
+        public List<CategorySummary> GetNutritionCategoryByDate(string date) //Tarihe göre kategori analizi
+        {
+            var userNutritionDetails = _repository.GetNutritionNutritionDetails()
+                .Where(e => e.CreatedDate.ToString("dd/MM/yyyy") == date)
+                .GroupBy(c => c.Nutrition.Category.CategoryName)
+                .Select(group => new CategorySummary
+                {
+                    CategoryName = group.Key,
+                    Count = group.Count(),
+                    TotalQuantity = group.Sum(x => x.Quantity)
+                })
+                .OrderByDescending(item => item.Count)
+                .ToList();
+
+            return userNutritionDetails;
+        }
+
+
+
         public List<MealSummary> GetNutritionMeal() //genel sorgu
         {
             var userNutritionDetails = _repository.GetNutritionNutritionDetails()

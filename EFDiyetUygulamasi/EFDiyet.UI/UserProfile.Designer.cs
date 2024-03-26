@@ -179,10 +179,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Georgia", 9.75F);
+            label5.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label5.ForeColor = Color.Firebrick;
             label5.Location = new Point(27, 116);
             label5.Name = "label5";
-            label5.Size = new Size(91, 16);
+            label5.Size = new Size(109, 16);
             label5.TabIndex = 31;
             label5.Text = "Doğum Tarihi";
             // 
@@ -212,20 +213,22 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Georgia", 9.75F);
+            label6.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label6.ForeColor = Color.Firebrick;
             label6.Location = new Point(30, 192);
             label6.Name = "label6";
-            label6.Size = new Size(32, 16);
+            label6.Size = new Size(36, 16);
             label6.TabIndex = 32;
             label6.Text = "Kilo";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Georgia", 9.75F);
+            label7.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label7.ForeColor = Color.Firebrick;
             label7.Location = new Point(32, 262);
             label7.Name = "label7";
-            label7.Size = new Size(31, 16);
+            label7.Size = new Size(35, 16);
             label7.TabIndex = 33;
             label7.Text = "Boy";
             // 
@@ -241,10 +244,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Georgia", 9.75F);
+            label4.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label4.ForeColor = Color.Firebrick;
             label4.Location = new Point(28, 47);
             label4.Name = "label4";
-            label4.Size = new Size(57, 16);
+            label4.Size = new Size(67, 16);
             label4.TabIndex = 30;
             label4.Text = "Cinsiyet";
             // 
@@ -298,7 +302,6 @@
             // 
             // pctBx_ImageAdd
             // 
-            pctBx_ImageAdd.BackgroundImage = Properties.Resources.user__1_;
             pctBx_ImageAdd.BorderStyle = BorderStyle.FixedSingle;
             pctBx_ImageAdd.Image = Properties.Resources.user__2_;
             pctBx_ImageAdd.Location = new Point(65, 19);
@@ -336,30 +339,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Georgia", 9.75F);
+            label1.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label1.ForeColor = Color.Firebrick;
             label1.Location = new Point(34, 146);
             label1.Name = "label1";
-            label1.Size = new Size(87, 16);
+            label1.Size = new Size(101, 16);
             label1.TabIndex = 27;
             label1.Text = "Kullanıcı Adı";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Georgia", 9.75F);
+            label2.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label2.ForeColor = Color.Firebrick;
             label2.Location = new Point(34, 216);
             label2.Name = "label2";
-            label2.Size = new Size(107, 16);
+            label2.Size = new Size(124, 16);
             label2.TabIndex = 28;
             label2.Text = "Kullanıcı Soyadı";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Georgia", 9.75F);
+            label3.Font = new Font("Georgia", 9.75F, FontStyle.Bold);
+            label3.ForeColor = Color.Firebrick;
             label3.Location = new Point(35, 290);
             label3.Name = "label3";
-            label3.Size = new Size(78, 16);
+            label3.Size = new Size(89, 16);
             label3.TabIndex = 29;
             label3.Text = "Mail Adresi";
             // 

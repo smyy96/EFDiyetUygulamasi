@@ -13,11 +13,13 @@ namespace EFDiyet.UI
 {
     public partial class AdminPanel : Form
     {
-        AdminAdditionalData AdminAdditionalData = new AdminAdditionalData();
+
+        AdminAddNutrition adminAddNutrition = new AdminAddNutrition();
+
         public AdminPanel()
         {
             InitializeComponent();
-            ShowPanelControl(AdminAdditionalData);
+            ShowPanelControl(adminAddNutrition);
 
         }
 
@@ -30,11 +32,13 @@ namespace EFDiyet.UI
 
         private void lblEkDegisimler_Click(object sender, EventArgs e)
         {
+            AdminAdditionalData AdminAdditionalData = new AdminAdditionalData();
             ShowPanelControl(AdminAdditionalData);
         }
 
         private void pbOgunEkle_Click(object sender, EventArgs e)
         {
+            AdminAdditionalData AdminAdditionalData = new AdminAdditionalData();
             ShowPanelControl(AdminAdditionalData);
         }
 
@@ -45,7 +49,7 @@ namespace EFDiyet.UI
 
         private void lblDietAppA_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("\tDiyet Uygulaması\n\tSümeyye, Hivda, Ilgın\n\tSaygıyla Sunar ♥");
         }
 
         private void lblBesinEkle_Click(object sender, EventArgs e)
@@ -71,5 +75,13 @@ namespace EFDiyet.UI
             AdminAnalysisPage analysisPage = new AdminAnalysisPage();
             ShowPanelControl(analysisPage);
         }
+
+        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoginForm form = Application.OpenForms.OfType<LoginForm>().FirstOrDefault();
+            form.FormClear();
+            form.Show();
+        }
+
     }
 }

@@ -167,7 +167,9 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminPanel";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Sayfası";
+            FormClosed += AdminPanel_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pbAnaliz).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbOgunEkle).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbBesinEkle).EndInit();

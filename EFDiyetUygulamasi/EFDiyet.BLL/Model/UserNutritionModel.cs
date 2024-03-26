@@ -14,6 +14,7 @@ namespace EFDiyet.BLL.Model
         public int NutritionId { get; set; }
         public int MealId { get; set; }
         public int Quantity { get; set; }
+        public DateTime CreatedDate { get; set; }
 
 
 

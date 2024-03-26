@@ -68,6 +68,7 @@
             lblAnalizU.Size = new Size(56, 23);
             lblAnalizU.TabIndex = 16;
             lblAnalizU.Text = "Analiz";
+            lblAnalizU.Click += lblAnalizU_Click;
             // 
             // lblGecmis
             // 
@@ -79,6 +80,7 @@
             lblGecmis.Size = new Size(65, 23);
             lblGecmis.TabIndex = 15;
             lblGecmis.Text = "Geçmiş";
+            lblGecmis.Click += lblGecmis_Click;
             // 
             // lblAnasayfa
             // 
@@ -90,6 +92,7 @@
             lblAnasayfa.Size = new Size(93, 23);
             lblAnasayfa.TabIndex = 14;
             lblAnasayfa.Text = "ANASAYFA";
+            lblAnasayfa.Click += lblAnasayfa_Click;
             // 
             // lblDietAppU
             // 
@@ -101,6 +104,7 @@
             lblDietAppU.Size = new Size(108, 32);
             lblDietAppU.TabIndex = 13;
             lblDietAppU.Text = "DietApp";
+            lblDietAppU.Click += lblDietAppU_Click;
             // 
             // pbUserProfile
             // 
@@ -124,6 +128,7 @@
             pbAnalizU.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAnalizU.TabIndex = 11;
             pbAnalizU.TabStop = false;
+            pbAnalizU.Click += pbAnalizU_Click;
             // 
             // pbGecmis
             // 
@@ -135,6 +140,7 @@
             pbGecmis.SizeMode = PictureBoxSizeMode.StretchImage;
             pbGecmis.TabIndex = 10;
             pbGecmis.TabStop = false;
+            pbGecmis.Click += pbGecmis_Click;
             // 
             // pbAnasayfa
             // 
@@ -146,6 +152,7 @@
             pbAnasayfa.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAnasayfa.TabIndex = 9;
             pbAnasayfa.TabStop = false;
+            pbAnasayfa.Click += pbAnasayfa_Click;
             // 
             // panel1
             // 
@@ -175,7 +182,10 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UserForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Kullanıcı Sayfası";
+            FormClosed += UserForm_FormClosed;
+            Load += UserForm_Load;
             ((System.ComponentModel.ISupportInitialize)pbUserProfile).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAnalizU).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbGecmis).EndInit();
