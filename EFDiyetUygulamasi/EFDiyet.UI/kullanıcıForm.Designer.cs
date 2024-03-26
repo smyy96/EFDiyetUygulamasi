@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -40,11 +41,22 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
+            // button1
+            // 
+            button1.Location = new Point(44, 300);
+            button1.Name = "button1";
+            button1.Size = new Size(110, 71);
+            button1.TabIndex = 1;
+            button1.Text = "ılgının yaptıgı kullanıcı profil sayfasına git";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // kullanıcıForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(648, 402);
+            Controls.Add(button1);
             Controls.Add(label1);
             Name = "kullanıcıForm";
             Text = "kullanıcıForm";
@@ -57,5 +69,6 @@
         #endregion
 
         private Label label1;
+        private Button button1;
     }
 }

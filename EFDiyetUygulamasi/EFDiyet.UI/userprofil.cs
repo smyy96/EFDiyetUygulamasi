@@ -1,4 +1,5 @@
 ﻿using EFDiyet.BLL.Manager.Concrete;
+using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
 using EFDiyet.DAL.Context.Enums;
 using System;
@@ -16,16 +17,18 @@ namespace EFDiyet.UI
 {
     public partial class userprofil : Form
     {
-        User user;
-        static int selectedEntityId = 0;
+        UserModel user; //burasına User user; demişsin fakat biz BLL Katmanındaki usermodele erişebiliyoruz. UIdan direk data katmanına erişim olmadıgı için User diyemiyoruz veri çekerken
+        //static int selectedEntityId = 0; artık bu deger yok cunku kullanıcı bilgisi form acılınca direk geliyor
         byte[] imageData = null;
 
-        public userprofil(User diyetuser)
+        public userprofil(UserModel diyetuser)
         {
             InitializeComponent();
             user = diyetuser;
             labelClear();
 
+
+            comboBoxEnumAdded();//comboboxın içini enumdaki değerler ile doldurma
         }
 
         private void userprofil_Load(object sender, EventArgs e)
@@ -34,11 +37,23 @@ namespace EFDiyet.UI
 
         }
 
+        private void comboBoxEnumAdded()
+        {
+
+            comboBox1.DataSource = Enum.GetValues(typeof(Gender))
+            .Cast<Gender>()
+            .Select(e => new { Value = e, Description = e.ToString() })
+            .ToList();
+            comboBox1.DisplayMember = "Description";
+            comboBox1.ValueMember = "Value";
+            comboBox1.SelectedIndex = -1;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (selectedEntityId == null || selectedEntityId <= 0)
+            if (user == null)
             {
-                MessageBox.Show("Herhangi bir seçim yapmadınız ya da veri mevcut değil.\nTabloda seçmek istediğiniz değere çift tıklayarak seçim yapınız.", "Uyarı..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Kullanıcı Yükleme Hatası.", "Uyarı..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (FormControl())
             {
@@ -46,49 +61,95 @@ namespace EFDiyet.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    UserManager userManager = new UserManager();
-                    var entity = userManager.GetById(selectedEntityId);
-                    entity.Name = textBox1.Text;
-                    entity.Surname = textBox2.Text;
-                    entity.Email = textBox3.Text;
+                    //UserManager userManager = new UserManager();
+                    //var entity = userManager.GetById(user.Id);
+                    user.Name = textBox1.Text;
+                    user.Surname = textBox2.Text;
+                    user.Email = textBox3.Text;
+                    user.Picture = (byte[])imageData;
 
-                   //buraya komple bakıcaz. userdetaildan mı almak gerekir bi taraf hep hata verdi???
-                    user.UserDetail.Gender = (Gender)Enum.Parse(typeof(Gender), comboBox1.SelectedItem.ToString());
-                    user.UserDetail.BirthDate = dateTimePicker1.Value;
-                    user.UserDetail.Weight = float.Parse(textBox6.Text);
-                    user.UserDetail.Height = float.Parse(textBox7.Text);
-                   
-                    // entity.Gender =
-                    //entity.Birthdate
-                    //entity.Weight = textBox6.Text;
-                    //entity.Height = textBox7.Text;
-                    //entity.Picture = (byte[])pictureBox1;
+                    //buraya komple bakıcaz. userdetaildan mı almak gerekir bi taraf hep hata verdi???
 
-                    userManager.Modified(entity);
+                    UserDetailManager userDetailManager = new UserDetailManager();
+                    var detail = userDetailManager.GetById(user.UserDetailId); //user detailde bu kullanıcının detay bilgisinin cektim veritabanından 
+                    detail.Gender = (Gender)comboBox1.SelectedValue;
+                    detail.BirthDate = dateTimePicker1.Value;
+                    detail.Weight = float.Parse(textBox6.Text);
+                    detail.Height = float.Parse(textBox7.Text);
+
+                    UserManager userManager = new UserManager(); //user tablosundaki verileri güncelleştirdik.
+                    userManager.Modified(user);
+
+                    userDetailManager.Modified(detail);//userdetail tablosunu güncelleştirdik. 
+
+
                     MessageBox.Show("Başarıyla veri güncellendi.");
-                    FormClear();
+                    DisableClickBehavior();
                 }
                 else
                 {
-                    FormClear();
+                    LoadScreen();
                 }
 
             }
-            selectedEntityId = 0;
             imageData = null;
         }
 
         public void LoadScreen()
         {
-            pictureBox1.Image = Image.FromFile(user.Picture);
-            textBox1.Text = user.UserDetail.Name;
-            textBox2.Text = user.UserDetail.Surname;
-            textBox3.Text = user.UserDetail.Email;
-            dateTimePicker1.Text = user.UserDetail.BirthDate.ToShortDateString();
-            comboBox1.Text = user.UserDetail.Gender.ToString();
-            textBox6.Text = user.UserDetail.Weight.ToString();
-            textBox7.Text = user.UserDetail.Height.ToString();
+            UserDetailManager detailManager = new UserDetailManager();
+            var detail = detailManager.GetById(user.UserDetailId);
 
+            textBox1.Text = user.Name;
+            textBox2.Text = user.Surname;
+            textBox3.Text = user.Email;
+            dateTimePicker1.Text = detail.BirthDate.ToShortDateString();
+            comboBox1.Text = detail.Gender.ToString();
+            textBox6.Text = detail.Weight.ToString();
+            textBox7.Text = detail.Height.ToString();
+
+            if (user.Picture != null && user.Picture is byte[])  //kullanıcının resmini bu satırdan sonra dolduruyor.
+            {
+                imageData = (byte[])user.Picture;
+            }
+            if (user.Picture == null)
+                pictureBox1.Image = null;
+
+            if (imageData != null && imageData.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    try
+                    {
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox1.Image = Image.FromStream(ms);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine("Resim yüklenme hatası: " + ex.ToString());
+                        pictureBox1.Image = null;
+                    }
+                }
+            }
+            else
+            {
+                pictureBox1.Image = null;
+            }
+
+            DisableClickBehavior();
+        }
+
+
+        private void DisableClickBehavior()
+        {
+            // tıklanma özelliklerini kapattım
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
+            textBox3.ReadOnly = true;
+            dateTimePicker1.Enabled = false;
+            comboBox1.Enabled = false;
+            textBox6.ReadOnly = true;
+            textBox7.ReadOnly = true;
         }
 
         private bool FormControl()
@@ -169,21 +230,71 @@ namespace EFDiyet.UI
             textBox2.Text = string.Empty;
             textBox3.Text = string.Empty;
             comboBox1.SelectedIndex = -1;
-            //dateTimePicker1.
+            dateTimePicker1.Value = DateTime.Now;
             textBox6.Text = string.Empty;
             textBox7.Text = string.Empty;
             imageData = null;
-            selectedEntityId = 0;
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-                
-            
+
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e) // toolara tıklanıp değişiklik yapma özelliğini açtım
+        {
+            textBox1.ReadOnly = false;
+            textBox2.ReadOnly = false;
+            //textBox3.ReadOnly = false;
+            dateTimePicker1.Enabled = true;
+            comboBox1.Enabled = true;
+            textBox6.ReadOnly = false;
+            textBox7.ReadOnly = false;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) //resim cervesine tıklayınca yeni resim secimi yapma
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+
+                    string extension = Path.GetExtension(filePath);
+                    if (extension != ".jpg" && extension != ".jpeg" && extension != ".png" && extension != ".gif")
+                    {
+                        MessageBox.Show("Lütfen bir resim dosyası seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    imageData = File.ReadAllBytes(filePath);
+
+                    try
+                    {
+                        using (MemoryStream ms = new MemoryStream(imageData))
+                        {
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureBox1.Image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Resim yükleme hatası: " + ex.ToString(), "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         //bak mesela en son farkettim galiba dşündüğüme göre komple yanlıs yapmısım. Ben güncelleye tıklayınca textboxlara yazı yazılabilir hale gelsin istiyodum. sonra değişikler olacak ve kaydete basınca sisteme yeni haliyle kaydolacak gibi. 
+
+
+
+        //onun yerine sunu yaptım Textleri aktif et diye buton koydum o textleri aktif ediyor sonra değiştirmek istediğini değiştiriyor kullanıcı güncelle butonuna tıklayınca de güncelliyor
+
+
     }
 }
