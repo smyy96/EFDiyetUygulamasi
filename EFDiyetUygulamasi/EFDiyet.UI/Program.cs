@@ -1,4 +1,7 @@
 
+using EFDiyet.BLL.Manager.Concrete;
+using EFDiyet.BLL.Model;
+
 namespace EFDiyet.UI
 {
     internal static class Program
@@ -9,6 +12,11 @@ namespace EFDiyet.UI
         [STAThread]
         static void Main()
         {
+
+
+            UserManager usermanager = new UserManager();
+            UserModel GetUser = usermanager.GetById(1);
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
@@ -16,6 +24,7 @@ namespace EFDiyet.UI
             //Application.Run(new BesinEkleAdmin());
             //Application.Run(new AdminPanel());
             //Application.Run(new UserForm());
+            //Application.Run(new UserForm(GetUser));
         }
     }
 }

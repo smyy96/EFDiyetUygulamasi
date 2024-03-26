@@ -349,7 +349,10 @@
             // 
             // pctBxImage
             // 
-            pctBxImage.BackColor = Color.White;
+            pctBxImage.BackColor = Color.FromArgb(255, 208, 177);
+            pctBxImage.BackgroundImage = Properties.Resources.user__2_;
+            pctBxImage.BackgroundImageLayout = ImageLayout.Zoom;
+            pctBxImage.BorderStyle = BorderStyle.FixedSingle;
             pctBxImage.Location = new Point(62, 16);
             pctBxImage.Margin = new Padding(3, 2, 3, 2);
             pctBxImage.Name = "pctBxImage";
@@ -446,6 +449,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "UserRegister";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Kullanıcı Kayıt";
             FormClosed += UserRegister_FormClosed;
             panel1.ResumeLayout(false);

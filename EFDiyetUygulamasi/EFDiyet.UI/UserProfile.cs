@@ -209,7 +209,7 @@ namespace EFDiyet.UI
 
         private void labelClear()
         {
-            foreach (Control control in panel2.Controls)
+            foreach (Control control in panel3.Controls)
             {
                 if (control is Label label)
                 {

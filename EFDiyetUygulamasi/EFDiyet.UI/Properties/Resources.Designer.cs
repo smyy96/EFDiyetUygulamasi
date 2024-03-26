@@ -73,6 +73,16 @@ namespace EFDiyet.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _17114429891631 {
+            get {
+                object obj = ResourceManager.GetObject("17114429891631", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _220317153849_diet_culture_stock {
             get {
                 object obj = ResourceManager.GetObject("220317153849-diet-culture-stock", resourceCulture);

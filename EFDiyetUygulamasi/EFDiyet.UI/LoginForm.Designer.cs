@@ -184,6 +184,7 @@ namespace EFDiyet.UI
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Giriş Sayfası";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
