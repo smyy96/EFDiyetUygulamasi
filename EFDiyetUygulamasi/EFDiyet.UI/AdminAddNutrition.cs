@@ -392,6 +392,5 @@ namespace EFDiyet.UI
             labelClear();
             dataGridViewRefresh();
         }
-
     }
 }
