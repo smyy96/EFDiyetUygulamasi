@@ -60,7 +60,7 @@ namespace EFDiyet.UI
                 UserNutritionManager userNutritionManager = new UserNutritionManager();
                 UserNutritionModel model = new UserNutritionModel();
                 model.UserId = GetUser.Id;
-                model.NutritionId = dtg_Nutrition_DoubleClick.Entity.NutritionId;
+                //model.NutritionId = dtg_Nutrition_DoubleClick.Entity.NutritionId;
 
 
 
