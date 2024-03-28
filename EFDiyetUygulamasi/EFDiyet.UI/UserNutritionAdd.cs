@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static EFDiyet.BLL.Manager.Concrete.NutritionManager;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EFDiyet.UI
 {
@@ -19,7 +21,131 @@ namespace EFDiyet.UI
         {
             InitializeComponent();
             this.GetUser = userModel;
+
+            comboBoxMealsAdded();
         }
+
+        NutritionAdd entity;
+        byte[] imageData = null;
+
+
+        private void comboBoxMealsAdded()
+        {
+            MealManager manager = new MealManager();
+            var data = manager.GetAll().Select(n => new { Id = n.Id, MealName = n.MealName }).ToList();
+            cmb_Meals.DataSource = data;
+            cmb_Meals.DisplayMember = "MealName";
+            cmb_Meals.ValueMember = "Id";
+            cmb_Meals.SelectedIndex = -1;
+        }
+
+
+
+        private void UserNutritionAdd_Load(object sender, EventArgs e)
+        {
+            NutritionManager nutritionManager = new NutritionManager();
+
+            dtg_Nutrition.DataSource = nutritionManager.GetNutritioAdd();
+
+        }
+
+        private void btn_NutritionAdd_Click(object sender, EventArgs e)
+        {
+            if (dtg_Nutrition.SelectedRows.Count > 0)
+            {
+                if (cmb_Meals.SelectedIndex >= 0)
+                {
+                    if (txt_BesinAdeti.Text == "" || !int.TryParse(txt_BesinAdeti.Text, out int parsedValue))
+                    {
+                        MessageBox.Show("Besin Adeti Seçiminde Hata Yaptınız Lütfen Tekrar Deneyiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        UserNutritionManager userNutritionManager = new UserNutritionManager();
+                        UserNutritionModel model = new UserNutritionModel();
+
+                        model.UserId = GetUser.Id;
+                        model.Quantity = int.Parse(txt_BesinAdeti.Text);
+
+
+                        MealManager mealManager = new MealManager();
+                        var meal = mealManager.GetAll().FirstOrDefault(m => m.Id == (int)cmb_Meals.SelectedValue);
+                        model.MealId = meal.Id;
+
+
+                        NutritionManager nutritionManager = new NutritionManager();
+                        var nutrition = nutritionManager.GetAll().FirstOrDefault(m => m.NutritionName == entity.NutritionName);
+                        model.NutritionId = nutrition.Id;
+
+
+                        userNutritionManager.Insert(model);
+
+                        MessageBox.Show("Seçilen besin başarıyla eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        FormClear();
+                    }
+
+                }
+
+                else
+                    MessageBox.Show("Ögün Seçmediniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir besin seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void dtg_Nutrition_DoubleClick(object sender, EventArgs e)
+        {
+            entity = (NutritionAdd)((dtg_Nutrition.SelectedRows[0]).DataBoundItem);
+
+            if (entity != null)
+            {
+                txt_Calorie.Text = entity.Calorie.ToString();
+                txt_NutriCCategory.Text = entity.CategoryName;
+                txt_NutriName.Text = entity.NutritionName;
+                txt_NutriValue.Text = entity.NutritionValue;
+                txt_Portion.Text = entity.Portion.ToString();
+                txt_PortionSize.Text = entity.PortionSize.ToString();
+
+                object cellValue = entity.Image;
+                if (cellValue != null && cellValue is byte[])
+                {
+                    imageData = (byte[])cellValue;
+                }
+                if (cellValue == null)
+                    pictureBox_BesinFoto.Image = null;
+
+                if (imageData != null && imageData.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        try
+                        {
+                            pictureBox_BesinFoto.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureBox_BesinFoto.Image = Image.FromStream(ms);
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Resim yüklenme hatası: " + ex.ToString());
+                            pictureBox_BesinFoto.Image = null;
+                        }
+                    }
+                }
+                else
+                {
+                    pictureBox_BesinFoto.Image = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Herhangi bir değer seçilmedi.", "Uyarı.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
 
         private void FormClear()
         {
@@ -31,92 +157,8 @@ namespace EFDiyet.UI
             txt_NutriCCategory.Text = string.Empty;
             cmb_Meals.SelectedIndex = -1;
             txt_BesinAdeti.Text = string.Empty;
+            pictureBox_BesinFoto.Image = null;
         }
 
-
-
-        private void UserNutritionAdd_Load(object sender, EventArgs e)
-        {
-            NutritionManager nutritionManager = new NutritionManager();
-
-            //Data katmanına erişim olmaz
-            /*var data = nutritionManager.GetNutritionDetails()
-                .Select(n => new List<DAL.Context.Entities.Concrete.Nutrition> { });       
-                    
-            dtg_Nutrition.DataSource = nutritionManager.GetNutritionDetails().ToList();*/
-
-
-            //yükleme işlemini bu şekilde yapabilirsin 
-
-           dtg_Nutrition.DataSource = nutritionManager.GetNutritionDetails()
-                .Select(n => new { n.NutritionName, n.NutritionValue.NutritionValueName, n.Category.CategoryName,n.Portion,n.PortionSize,n.Image}).ToList();
-        }
-
-        private void btn_NutritionAdd_Click(object sender, EventArgs e)
-        {
-            if (dtg_Nutrition.SelectedRows.Count > 0)
-            {
-                int selectedRowIndex = dtg_Nutrition.SelectedCells[0].RowIndex;
-                int selectedEntityId = (int)dtg_Nutrition.Rows[selectedRowIndex].Cells["Id"].Value;
-
-                NutritionManager nutritionManager = new NutritionManager();
-                var selectedNutrition = nutritionManager.GetById(selectedEntityId);
-
-
-                UserNutritionManager userNutritionManager = new UserNutritionManager();
-                UserNutritionModel model = new UserNutritionModel();
-                model.UserId = GetUser.Id;
-
-                // model.NutritionId = dtg_Nutrition_DoubleClick.Entity.NutritionId; //burada dtg_Nutrition_DoubleClick in event adını almışsın bu sana birsey getirmez sadece isim bu, bir nevi metot biz bu metotun içinde değişkenimize o tıklanma olayı olunca tıklanan değeri atamalıyız 
-
-                // model.NutritionId= degerine ekleme yapacaksın mesela bu da id olmalı ama tablodan sana ıd yerine besin adı geliyor bunun içinde nutrition tablosundan linq sorgusu ile besin adını aratıp ıd sini bulup onu atayacaksın. bunu butun usernutrition tablosundaki degerler için yapacaksın 
-
-
-
-                model.NutritionId = selectedNutrition.Id; //burada mesela secilen satırın ıdsini adıyorsun ama o satırda bir suru deger var besin ıdsini atamamn lazım buraya
-                userNutritionManager.Insert(model);
-
-                MessageBox.Show("Seçilen besin başarıyla eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Lütfen bir besin seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        
-        }
-
-        private void dtg_Nutrition_DoubleClick(object sender, EventArgs e)
-        {
-            var n = (dtg_Nutrition.SelectedRows[0]).DataBoundItem; // bunun gibi datagride iki kere tıklama işlemi yapılınca o degeri alır ve degişkene atar bu degişken global tanımlanmalı dışarıda"
-                                                                   // nutritionmodel secilenbesin;
-                                                                   // gibi
-
-            //sonra secilenbesin degerinin içindekileri textboxlarayazırma. asagıdaki gibi
-
-
-            /*txt_NutriName = n.NutritionName;
-                    txt_Calorie = n.Calories,
-                    txt_NutriCCategory = n.Category.CategoryName,
-                    txt_NutriValue = n.NutritionValue.NutritionValueName,
-                    txt_Portion = n.Portion,
-                    txt_PortionSize = n.PortionSize*/
-
-            //tabi burada resim de doldurulacak resim doldurma kodları vesin eklemenın double click kısmında var
-             
-
-
-            NutritionManager nutritionManager = new NutritionManager();
-            var data = nutritionManager.GetNutritionDetails()
-                .Select(n => new
-                {
-                    txt_NutriName = n.NutritionName,
-                    txt_Calorie = n.Calories,
-                    txt_NutriCCategory = n.Category.CategoryName,
-                    txt_NutriValue = n.NutritionValue.NutritionValueName,
-                    txt_Portion = n.Portion,
-                    txt_PortionSize = n.PortionSize
-                }).ToList();
-        
-    }
     }
 }

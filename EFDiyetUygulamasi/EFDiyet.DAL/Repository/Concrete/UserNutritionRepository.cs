@@ -25,5 +25,17 @@ namespace EFDiyet.DAL.Repository.Concrete
                 .ToList();
             return userNutritionDetails;
         }
+
+
+        public List<UserNutrition> UserNutritionDetails()
+        {
+            var userNutritionDetails = _dbSet
+                .Include(n => n.User)
+                .Include(n => n.Nutrition)
+                .Include(n => n.Meal)
+                .Where(x => x.IsActive == true)
+                .ToList();
+            return userNutritionDetails;
+        }
     }
 }

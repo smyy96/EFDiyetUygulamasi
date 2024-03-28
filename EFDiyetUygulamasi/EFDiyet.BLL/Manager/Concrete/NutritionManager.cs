@@ -4,6 +4,7 @@ using EFDiyet.BLL.Manager.Abstract;
 using EFDiyet.BLL.MappingProfile;
 using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
+using EFDiyet.DAL.Context.Enums;
 using EFDiyet.DAL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,23 @@ namespace EFDiyet.BLL.Manager.Concrete
         {
             return _repository.GetNutritionDetails();
         }
+
+        public List<NutritionAdd> GetNutritioAdd() //besinlerin oldugu listeyi getiriyor ıdler yerine hepsinin ismini getiriyor
+        {
+            return _repository.GetNutritionDetails()
+                .Select(n => new NutritionAdd
+                {
+                    NutritionName = n.NutritionName,
+                    CategoryName = n.Category.CategoryName,
+                    NutritionValue = n.NutritionValue.NutritionValueName,
+                    Calorie = n.Calories,
+                    Portion = n.Portion,
+                    PortionSize = n.PortionSize,
+                    Image = n.Image
+                })
+                .ToList();
+        }
+
 
         public List<NutritionCount> GetNutritionMealDetails(int haftalıkAylık)
         {
@@ -132,7 +150,28 @@ namespace EFDiyet.BLL.Manager.Concrete
             public int TotalQuantity { get; set; }
             public float TotalCalorie { get; set; }
             public string Count { get; set; }
-
         }
+
+
+        public class NutritionAdd
+        {
+            public string NutritionName { get; set; }
+            public string CategoryName { get; set; }
+            public string NutritionValue { get; set; }
+            public float Calorie { get; set; }
+            public Portion Portion { get; set; }
+            public float PortionSize { get; set; }
+            public byte[] Image { get; set; }
+        }
+
+
+        public class UserNutritionDetail
+        {
+            public string NutritionName { get; set; }
+            public string MealName { get; set; }
+            public string CategoryName { get; set; }
+            public float Calorie { get; set; }
+        }
+
     }
 }

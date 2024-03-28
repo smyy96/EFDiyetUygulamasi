@@ -2,6 +2,7 @@
 using EFDiyet.BLL.MappingProfile;
 using EFDiyet.BLL.Model;
 using EFDiyet.DAL.Context.Entities.Concrete;
+using EFDiyet.DAL.Context.Enums;
 using EFDiyet.DAL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace EFDiyet.BLL.Manager.Concrete
     {
         public List<CategorySummary> GetNutritionCategoryByEmail(string email) //kisiye göre sorgu admin paneli kategoriye göre
         {
-            var userNutritionDetails = _repository.GetNutritionNutritionDetails() 
+            var userNutritionDetails = _repository.GetNutritionNutritionDetails()
                 .Where(e => e.User.Email == email)
                 .GroupBy(c => c.Nutrition.Category.CategoryName)
                 .Select(group => new CategorySummary
@@ -126,6 +127,21 @@ namespace EFDiyet.BLL.Manager.Concrete
             return userNutritionDetails;
         }
 
+
+        public List<UserNutritionInfo> UserNutrition(int id, DateTime date)
+        {
+            return _repository.UserNutritionDetails()
+                 .Where(x => x.UserId == id && x.CreatedDate.Date == Convert.ToDateTime(date).Date)
+                 .Select(x => new UserNutritionInfo
+                 {
+                     IdUN = x.Id,
+                     NutritionName = x.Nutrition.NutritionName,
+                     MealName = x.Meal.MealName,
+                     Portion = x.Nutrition.Portion,
+                     Quantity = x.Quantity
+                 }).ToList();
+        }
+
     }
 
     public class CategorySummary
@@ -142,6 +158,15 @@ namespace EFDiyet.BLL.Manager.Concrete
         public int Count { get; set; }
         public int TotalQuantity { get; set; }
         public float TotalCalorie { get; set; }
+    }
+
+    public class UserNutritionInfo
+    {
+        public int IdUN { get; set; }
+        public string MealName { get; set; }
+        public string NutritionName { get; set; }
+        public Portion Portion { get; set; }
+        public int Quantity { get; set; }
     }
 
 }

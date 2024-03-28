@@ -40,30 +40,34 @@
             // 
             // dtgv_NutritionUser
             // 
+            dtgv_NutritionUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgv_NutritionUser.BackgroundColor = Color.Linen;
             dtgv_NutritionUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgv_NutritionUser.Location = new Point(14, 13);
+            dtgv_NutritionUser.Location = new Point(15, 13);
             dtgv_NutritionUser.Name = "dtgv_NutritionUser";
-            dtgv_NutritionUser.Size = new Size(441, 380);
+            dtgv_NutritionUser.Size = new Size(479, 380);
             dtgv_NutritionUser.TabIndex = 0;
+            dtgv_NutritionUser.DoubleClick += dtgv_NutritionUser_DoubleClick;
             // 
             // dgv_NutritionDate
             // 
+            dgv_NutritionDate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_NutritionDate.BackgroundColor = Color.Linen;
             dgv_NutritionDate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_NutritionDate.Location = new Point(477, 13);
+            dgv_NutritionDate.Location = new Point(511, 13);
             dgv_NutritionDate.Name = "dgv_NutritionDate";
-            dgv_NutritionDate.Size = new Size(296, 267);
+            dgv_NutritionDate.Size = new Size(262, 267);
             dgv_NutritionDate.TabIndex = 1;
+            dgv_NutritionDate.DoubleClick += dgv_NutritionDate_DoubleClick;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Linen;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(btn_NutritionDelete);
-            panel1.Location = new Point(477, 303);
+            panel1.Location = new Point(511, 303);
             panel1.Name = "panel1";
-            panel1.Size = new Size(296, 90);
+            panel1.Size = new Size(262, 90);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -72,11 +76,11 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Georgia", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.Firebrick;
-            label2.Location = new Point(12, 31);
+            label2.Location = new Point(12, 22);
             label2.Name = "label2";
-            label2.Size = new Size(140, 32);
+            label2.Size = new Size(110, 48);
             label2.TabIndex = 8;
-            label2.Text = "Silmek İstediğiniz \r\nBesini Seçiniz.";
+            label2.Text = "Silmek \r\nİstediğiniz \r\nBesini Seçiniz.";
             // 
             // btn_NutritionDelete
             // 
@@ -86,12 +90,13 @@
             btn_NutritionDelete.FlatAppearance.BorderSize = 0;
             btn_NutritionDelete.FlatStyle = FlatStyle.Flat;
             btn_NutritionDelete.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btn_NutritionDelete.Location = new Point(163, 21);
+            btn_NutritionDelete.Location = new Point(130, 21);
             btn_NutritionDelete.Name = "btn_NutritionDelete";
             btn_NutritionDelete.Size = new Size(116, 51);
             btn_NutritionDelete.TabIndex = 7;
             btn_NutritionDelete.Text = "Besin Sil";
             btn_NutritionDelete.UseVisualStyleBackColor = false;
+            btn_NutritionDelete.Click += btn_NutritionDelete_Click;
             // 
             // UserHistory
             // 
