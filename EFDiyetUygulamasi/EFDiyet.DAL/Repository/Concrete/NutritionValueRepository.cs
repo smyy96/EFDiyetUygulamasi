@@ -1,5 +1,6 @@
 ﻿using EFDiyet.DAL.Context;
 using EFDiyet.DAL.Context.Entities.Concrete;
+using EFDiyet.DAL.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace EFDiyet.DAL.Repository.Concrete
 {
     public class NutritionValueRepository : Repository<NutritionValue>
     {
-        public NutritionValueRepository(DietDbContext db) : base(db) { }
+        public NutritionValueRepository() : base(new DietDbContext()) { }
     }
 }

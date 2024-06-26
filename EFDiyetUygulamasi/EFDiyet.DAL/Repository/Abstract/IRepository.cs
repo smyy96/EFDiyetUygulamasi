@@ -21,6 +21,6 @@ namespace EFDiyet.DAL.Repository.Abstract
 
         //public IQueryable<T> GetAllWithIncludes(params string[] navigationProperties);
 
-        //public IQueryable<T> GetAllWithIncludes();
+        public IQueryable<T> GetAllWithIncludes();
     }
 }

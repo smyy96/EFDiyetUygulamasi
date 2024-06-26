@@ -21,17 +21,19 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
             builder.Property(u => u.Name).HasMaxLength(100);
             builder.Property(u => u.Surname).HasMaxLength(100);
             builder.Property(u => u.Email).HasMaxLength(150).IsRequired();
-            builder.Property(u => u.Password).HasMaxLength(50).IsRequired();
+            builder.Property(u => u.Password).HasMaxLength(100).IsRequired();
             builder.Property(u => u.SecurityQuestion).HasMaxLength(150);
             builder.Property(u => u.Answer).HasMaxLength(100);
-            builder.Property(u => u.Picture).HasMaxLength(200);
+
+            builder.Property(u => u.Picture)
+               .HasColumnType("varbinary(max)");
 
             builder.Property(u => u.UserType);
 
 
             builder.HasOne(u => u.UserDetail)
                    .WithOne(ud => ud.User)
-                   .HasForeignKey<UserDetail>(ud => ud.Id);
+                   .HasForeignKey<User>(x => x.UserDetailId);
 
 
             builder.HasMany(un => un.UserNutrition)
@@ -46,10 +48,12 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Name = "ılgısü",
                         Surname = "Hiv",
                         Email = "ish@gmail.com.com",
-                        Password = "1234", 
+                        Password = "1234",
                         UserType = UserType.User,
                         SecurityQuestion = "Favori sayın kaçtır?",
-                        Answer = "5"
+                        Answer = "5",
+                        UserDetailId = 1,
+                        CreatedDate = DateTime.Now
                     },
                     new User
                     {
@@ -57,10 +61,12 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         Name = "Hivda Ilgın",
                         Surname = "Sümeyye",
                         Email = "admin@gmail.com",
-                        Password = "admin1234", 
+                        Password = "admin1234",
                         UserType = UserType.Admin,
                         SecurityQuestion = "Favori sayın kaçtır?",
-                        Answer = "1"
+                        Answer = "1",
+                        UserDetailId = 2,
+                        CreatedDate= DateTime.Now
                     });
         }
     }

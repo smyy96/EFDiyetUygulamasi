@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace EFDiyet.DAL.Context.Entities.Concrete
 {
     //Besinler tablosu
-    public class Nutrition :EntityBase
+    public class Nutrition : EntityBase
     {
         public string NutritionName { get; set; }
-        public float Calories { get; set; } 
-        public string? Image {  get; set; }  
+        public float Calories { get; set; }
+        public byte[]? Image { get; set; } = null;
 
-        public int CategoryId { get; set; } 
-        public Category Category { get; set; } 
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
         public int NutritionValueId { get; set; }
         public NutritionValue NutritionValue { get; set; }

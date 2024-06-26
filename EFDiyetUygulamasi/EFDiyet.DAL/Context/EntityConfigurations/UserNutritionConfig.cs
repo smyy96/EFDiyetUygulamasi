@@ -20,7 +20,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         UserId = 1, 
                         NutritionId = 1, 
                         MealId = 1, 
-                        Quantity = 2 
+                        Quantity = 2 ,
+                        CreatedDate = DateTime.Now,
                     },
                     new UserNutrition
                     {
@@ -28,7 +29,8 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
                         UserId = 1, 
                         NutritionId = 2, 
                         MealId = 2, 
-                        Quantity = 1 
+                        Quantity = 1 ,
+                        CreatedDate = DateTime.Now
                     }
                 );
         }

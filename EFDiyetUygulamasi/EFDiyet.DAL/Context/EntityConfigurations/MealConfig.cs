@@ -29,9 +29,9 @@ namespace EFDiyet.DAL.Context.EntityConfigurations
 
 
             builder.HasData(
-                       new Meal { Id = 1, MealName = "Kahvaltı" },
-                       new Meal { Id = 2, MealName = "Öğle Yemeği" },
-                       new Meal { Id = 3, MealName = "Akşam Yemeği" }
+                       new Meal { Id = 1, MealName = "Kahvaltı", CreatedDate = DateTime.Now },
+                       new Meal { Id = 2, MealName = "Öğle Yemeği", CreatedDate = DateTime.Now },
+                       new Meal { Id = 3, MealName = "Akşam Yemeği", CreatedDate = DateTime.Now }
                        );
         }
     }
