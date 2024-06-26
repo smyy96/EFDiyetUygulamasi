@@ -24,8 +24,8 @@ Projemiz kapsamında geliştireceğimiz yazılım ürünleri şunlardır:
 - **📚 Tüketilen Gıdalar Veritabanı**: Kullanıcıların tükettikleri yiyecekleri kaydedebilmeleri için kapsamlı bir besin veritabanı. Bu veritabanı, yiyeceklerin kalori değerlerini, besin bileşenlerini ve diğer besin değerlerini içerir.
 
 ## 🖥️ Giriş Paneli
-<img src="https://github.com/smyy96/EFDiyetUygulamasi/assets/62007900/731c0018-ff2f-41e2-8107-779f18e159ab" alt="kayıt" width="300"/>
 <img src="https://github.com/smyy96/EFDiyetUygulamasi/assets/62007900/e9e7b850-76da-400f-aa16-118a271b5e82" alt="Gırıs" width="300"/>
+<img src="https://github.com/smyy96/EFDiyetUygulamasi/assets/62007900/731c0018-ff2f-41e2-8107-779f18e159ab" alt="kayıt" width="300" height="180"/>
 
 ## 🛠️ Admin Paneli
 <img src="https://github.com/smyy96/EFDiyetUygulamasi/assets/62007900/1399dfa5-5e9d-41af-8662-b2dd670ba43c" alt="adminEk3" width="300"/>
