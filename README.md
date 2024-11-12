@@ -43,3 +43,4 @@ Projemiz kapsamında geliştireceğimiz yazılım ürünleri şunlardır:
 ## 📬 İletişim
 Proje hakkında herhangi bir sorunuz varsa lütfen iletişime geçin:  
 📧 [sumeyyecoskun.sc@gmail.com](mailto:sumeyyecoskun.sc@gmail.com)
+📧 ilginayaz4@gmail.com  📧 hivda.krhn@gmail.com
